@@ -7,8 +7,8 @@
 */
 int main(void)
 {
-	int semi = 32;
-	int space = 44;
+	int semi = 44;
+	int space = 32;
 	short newLine = '\n';
 	int i;
 	int j;
