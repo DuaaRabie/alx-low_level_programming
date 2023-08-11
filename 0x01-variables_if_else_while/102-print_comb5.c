@@ -24,8 +24,10 @@ int main(void)
 			putchar(space);*/
 			for (i = 48; i <= 57; i++)
 			{
-				for (j = 49; j <= 57; j++)
+				for (j = 48; j <= 57; j++)
 				{
+					/*if ( l != 48 && k != 48 && i != 48 && i != 48)
+					{*/
 				
 							putchar(l);
 							putchar(k);
@@ -37,11 +39,11 @@ int main(void)
 								putchar(semi);
 								putchar(space);
 							}
-					}
+				
 				}
 			}
 		}
-
+	}
 	
 	putchar(newLine);
 	return (0);
