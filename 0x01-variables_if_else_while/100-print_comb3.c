@@ -9,7 +9,7 @@ int main(void)
 {
 	int semi = 32;
 	int space = 44;
-	char newLine = '\n';
+	short newLine = '\n';
 	int i;
 	int j;
 
