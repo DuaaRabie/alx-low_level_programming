@@ -16,7 +16,7 @@ int main(void)
 	while (i < 10)
 	{
 		putchar(numbs);
-		if ( i < 9)
+		if (i < 9)
 		{
 			putchar(semi);
 			putchar(space);
