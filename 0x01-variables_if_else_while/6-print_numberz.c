@@ -7,14 +7,15 @@
 */
 int main(void)
 {
-	unsigned char numbs[] = "0123456789";
+	int numbs = 48;
 	short newLine = '\n';
 	int i = 0;
 
 	while (i < 10)
 	{
-		putchar(numbs[i]);
+		putchar(numbs);
 		i++;
+		numbs++;
 	}
 	putchar(newLine);
 	return (0);
