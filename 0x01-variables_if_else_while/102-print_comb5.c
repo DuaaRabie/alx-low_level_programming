@@ -25,7 +25,7 @@ int main(void)
 				{
 					if (!( l == 48 && k == 48 && j == 48 && i == 48))
 					{
-						if (k <= j && l <= i)
+						if (k < j && l <= i)
 						{
 						putchar(l);
 						putchar(k);
