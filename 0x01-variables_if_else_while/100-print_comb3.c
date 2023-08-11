@@ -10,8 +10,8 @@ int main(void)
 	int semi = 32;
 	int space = 44;
 	char newLine = '\n';
-	int i ;
-	int j ;
+	int i;
+	int j;
 
 	for (i = 48; i <= 56; i++)
 	{
@@ -21,7 +21,7 @@ int main(void)
 			{
 				putchar(i);
 				putchar(j);
-				if ( i != 56)
+				if (i != 56)
 				{
 					putchar(semi);
 					putchar(space);
