@@ -26,8 +26,8 @@ int main(void)
 			{
 				for (j = 48; j <= 57; j++)
 				{
-					/*if ( l != 48 && k != 48 && i != 48 && i != 48)
-					{*/
+					if ( l != 48 && k != 48 && i != 48 && i != 48)
+					{
 				
 							putchar(l);
 							putchar(k);
@@ -44,7 +44,7 @@ int main(void)
 			}
 		}
 	}
-	
+	}
 	putchar(newLine);
 	return (0);
 }
