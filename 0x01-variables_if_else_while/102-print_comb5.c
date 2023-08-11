@@ -35,6 +35,7 @@ int main(void)
 							if (!( k == 56 && l == 57 && i == 57 && j == 57))
 							{
 								putchar(semi);
+								putchar(space);
 							}
 					}
 				}
