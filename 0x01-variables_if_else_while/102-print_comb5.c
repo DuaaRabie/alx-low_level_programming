@@ -23,13 +23,13 @@ int main(void)
 			{
 				for (j = 48; j <= 57; j++)
 				{
-					if (!( l == 48 && k == 48 && i == 48 && i == 48))
+					if (!( l == 48 && k == 48 && j == 48 && i == 48))
 					{
 						putchar(l);
 						putchar(k);
 						putchar(space);
-						putchar(j);
 						putchar(i);
+						putchar(j);
 						if (!( k == 56 && l == 57 && i == 57 && j == 57))							{
 							putchar(semi);
 							putchar(space);
