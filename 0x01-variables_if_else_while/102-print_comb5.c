@@ -25,6 +25,8 @@ int main(void)
 				{
 					if (!( l == 48 && k == 48 && j == 48 && i == 48))
 					{
+						if (k <= j && l <= i)
+						{
 						putchar(l);
 						putchar(k);
 						putchar(space);
@@ -33,6 +35,7 @@ int main(void)
 						if (!( k == 56 && l == 57 && i == 57 && j == 57))							{
 							putchar(semi);
 							putchar(space);
+						}
 						}
 				
 					}
