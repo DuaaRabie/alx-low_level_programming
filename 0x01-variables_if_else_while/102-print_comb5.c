@@ -15,22 +15,19 @@ int main(void)
 	for (l = 0; l <= 99; l++)
 	{
 		k = l;
-		for (k = 0; k <= 99; k++)
+		for (; k <= 99; k++)
 		{
-			if ((l % 10) != 0)
+			if (l != k)
 			{
-				if (l != k)
+				putchar((l / 10) + 48);
+				putchar((l % 10) + 48);
+				putchar(space);
+				putchar((k / 10) + 48);
+				putchar((k % 10) + 48);
+				if (!(l == 98 && k == 99))
 				{
-					putchar((l / 10) + 48);
-					putchar((l % 10) + 48);
+					putchar(semi);
 					putchar(space);
-					putchar((k / 10) + 48);
-					putchar((k % 10) + 48);
-					if (!(l == 98 && k == 99))
-					{
-						putchar(semi);
-						putchar(space);
-					}
 				}
 			}
 		}
