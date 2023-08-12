@@ -14,6 +14,7 @@ int main(void)
 
 	for (l = 0; l <= 99; l++)
 	{
+		k = l;
 		for (k = 0; k <= 99; k++)
 		{
 			if ((l % 10) != 0)
