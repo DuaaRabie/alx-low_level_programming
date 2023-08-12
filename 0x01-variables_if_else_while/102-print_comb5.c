@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 /**
  * main - Entry point
  *
@@ -9,25 +10,38 @@ int main(void)
 	int semi = 44;
 	int space = 32;
 	short newLine = '\n';
-	int l;
+	int i;
+	int j;
 	int k;
+	int l;
 
-	for (l = 0; l <= 99; l++)
+	for (l = 48; l <= 57; l++)
 	{
-		k = l;
-		for (; k <= 99; k++)
+		for (k = 48; k <= 56; k++)
 		{
-			if (l != k)
+			i = l;
+			j = k;
+			for (i = 48; i <= 57; i++)
 			{
-				putchar((l / 10) + 48);
-				putchar((l % 10) + 48);
-				putchar(space);
-				putchar((k / 10) + 48);
-				putchar((k % 10) + 48);
-				if (!(l == 98 && k == 99))
+				for (j = 48; j <= 57; j++)
 				{
-					putchar(semi);
-					putchar(space);
+					if (!(l == 48 && k == 48 && j == 48 && i == 48))
+					{
+						if ((l * 10 + k) < (i * 10 + j) && (k <= j && l <= i))
+						{
+							putchar(l);
+							putchar(k);
+							putchar(space);
+							putchar(i);
+							putchar(j);
+							if (!(k == 56 && l == 57 && i == 57 && j == 57))
+							{
+								putchar(semi);
+								putchar(space);
+							}
+						}
+				
+					}
 				}
 			}
 		}
