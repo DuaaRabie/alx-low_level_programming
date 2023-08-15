@@ -14,6 +14,10 @@ int print_last_digit(int n)
 		n = n * -1;
 	}
 	LastDigit = (n % 10);
+	if (LastDigit < 0)
+	{
+		LastDigit *= -1;
+	}
 	_putchar(LastDigit + '0');
 	return (LastDigit);
 }

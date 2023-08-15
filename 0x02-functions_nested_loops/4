@@ -16,9 +16,9 @@ int main(void)
 	r = print_last_digit(-1024);
 	_putchar('0' + r);
 	_putchar('\n');
-	print_last_digit(min);
+	print_last_digit(INT_MIN);
 	_putchar('\n');
-	printf("%d\n",min);
-	_putchar(8 + '0');
+	printf("%d",min);
+	_putchar('\n');
 	return (0);
 }
