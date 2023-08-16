@@ -15,6 +15,7 @@ int main(void)
 		f = f1 + f2;
 		f1 = f2;
 		f2 = f;
+		printf("%d", f);
 		if (f == 50)
 		{
 			printf("\n");
