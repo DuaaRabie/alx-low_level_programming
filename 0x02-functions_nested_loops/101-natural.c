@@ -19,7 +19,7 @@ int main(void)
 	}
 	for (multi5 = 0; multi5 < 1024; multi5++)
 	{
-		if (multi5 % 5 == 0)
+		if (multi5 % 5 == 0 && multi5 % 3 != 0)
 		{
 			sum += multi5;
 		}
