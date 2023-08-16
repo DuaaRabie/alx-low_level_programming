@@ -8,9 +8,10 @@ int main(void)
 {
 	int f1 = 0;
 	int f2 = 1;
+	int i;
 	int f;
 
-	for (f = 1;  f <= 50; f++)
+	for (i= 1;  i <= 50; i++)
 	{
 		f = f1 + f2;
 		f1 = f2;
