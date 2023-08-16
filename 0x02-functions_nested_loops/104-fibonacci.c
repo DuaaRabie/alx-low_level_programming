@@ -25,7 +25,7 @@ int main(void)
 		}
 		else
 		{
-			return (0);
+			break;
 		}
 	}
 	printf("%.0f\n", sum);
