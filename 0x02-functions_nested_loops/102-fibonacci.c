@@ -11,10 +11,10 @@ int main(void)
 	unsigned int f;
 	int i;
 
-	for (i= 1;  i <= 50; i++)
+	for (i = 1;  i <= 50; i++)
 	{
 		f = f1 + f2;
-		printf("%d", f);
+		printf("%u", f);
 		f1 = f2;
 		f2 = f;
 		if (f == 50)
