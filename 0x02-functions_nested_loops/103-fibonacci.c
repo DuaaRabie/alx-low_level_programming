@@ -14,6 +14,10 @@ int main(void)
 	while (1)
 	{
 		f = f1 + f2;
+		if (f > 4000000)
+		{
+			break;
+		}
 		if (f <= 4000000)
 		{
 			if ((f % 2) == 0)
@@ -22,10 +26,6 @@ int main(void)
 			}
 		f2 = f;
 		f1 = f2;
-		}
-		if (f > 4000000)
-		{
-			break;
 		}
 	}
 	printf("%.0f\n", sum);
