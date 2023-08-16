@@ -8,12 +8,11 @@ int main(void)
 {
 	unsigned long f1 = 0;
 	unsigned long f2 = 1;
-	unsigned long f = 0;
+	unsigned long f = f1 + f2;
 	float sum = 0;
 
-	while(f <= 4000000)
+	while (f <= 4000000)
 	{
-		f = f1 + f2;
 		if ((f % 2) == 0)
 		{
 			sum += f;
@@ -21,6 +20,6 @@ int main(void)
 		f2 = f;
 		f1 = f2;
 	}
-	printf("%.0f\n",sum);
+	printf("%.0f\n", sum);
 	return (0);
 }
