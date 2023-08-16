@@ -14,13 +14,12 @@ int main(void)
 	while(f <= 4000000)
 	{
 		f = f1 + f2;
-		printf("%lu", f);
-		f1 = f2;
-		f2 = f;
-		if (f % 2 == 1)
+		if (f % 2 == 0)
 		{
 			sum += f;
 		}
+		f2 = f;
+		f1 = f2;
 	}
 	printf("%lu\n",sum);
 	return (0);
