@@ -6,10 +6,9 @@
 */
 int main(void)
 {
-	unsigned long long f1 = 0;
-	unsigned long long f2 = 1;
-	unsigned long long f = 0;
-	unsigned long long = i;
+	unsigned long f1 = 0;
+	unsigned long f2 = 1;
+	unsigned long f = 0;
 
 	while(f <= 4000000)
 	{
@@ -21,7 +20,7 @@ int main(void)
 		{
 			printf("f");
 		}
-		if (f = 4000000)
+		if (f == 4000000)
 		{
 			printf("\n");
 		}
