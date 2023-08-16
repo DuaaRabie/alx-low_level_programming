@@ -6,10 +6,10 @@
 */
 int main(void)
 {
-	int f1 = 0;
-	int f2 = 1;
+	unsigned int f1 = 0;
+	unsigned int f2 = 1;
+	unsigned int f;
 	int i;
-	int f;
 
 	for (i= 1;  i <= 50; i++)
 	{
