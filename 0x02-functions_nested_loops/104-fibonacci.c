@@ -9,25 +9,19 @@ int main(void)
 	unsigned long f1 = 0;
 	unsigned long f2 = 1;
 	unsigned long f;
-	float sum = 0;
+	int i;
 
-	while (1)
+	for (i = 0; i < 99; i++)
 	{
 		f = f1 + f2;
-		if (f <= 4000000)
-		{
-			if ((f % 2) == 0)
-			{
-				sum += f;
-			}
-		f2 = f;
+		printf("%lu", f);
 		f1 = f2;
-		}
-		else
+		f2 = f;
+		if (i != 98)
 		{
-			break;
+			printf(", ");
 		}
 	}
-	printf("%.0f\n", sum);
+	printf("\n");
 	return (0);
 }
