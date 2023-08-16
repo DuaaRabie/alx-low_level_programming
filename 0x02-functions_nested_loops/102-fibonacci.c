@@ -6,18 +6,18 @@
 */
 int main(void)
 {
-	unsigned int f1 = 0;
-	unsigned int f2 = 1;
-	unsigned int f;
+	unsigned long f1 = 0;
+	unsigned long f2 = 1;
+	unsigned long f;
 	int i;
 
 	for (i = 1;  i <= 50; i++)
 	{
 		f = f1 + f2;
-		printf("%u", f);
+		printf("%lu", f);
 		f1 = f2;
 		f2 = f;
-		if (f == 50)
+		if (i == 50)
 		{
 			printf("\n");
 		}
