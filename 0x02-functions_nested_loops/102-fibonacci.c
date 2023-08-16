@@ -14,9 +14,9 @@ int main(void)
 	for (i= 1;  i <= 50; i++)
 	{
 		f = f1 + f2;
+		printf("%d", f);
 		f1 = f2;
 		f2 = f;
-		printf("%d", f);
 		if (f == 50)
 		{
 			printf("\n");
