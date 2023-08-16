@@ -7,52 +7,42 @@
 */
 void print_times_table(int n)
 {
-	int i;
-	int j;
-	int k;
+	int i ;
+	int j ;
+	int k ;
 
 	if (!(n > 15 || n < 0 ))
 	{
-	for (i = 0; i <= n; i++)
-	{
-		for (j = 0; j <= n; j++)
+		for (i = 0; i <= n; i++)
 		{
-			k = j * i;
+			for (j = 0; j <= n; j++)
+			{
+				k = j * i;
 				if (k > 99)
 				{
-					_putchar(' ');
-					_putchar((k / 100) + '0');
-					_putchar(((k % 100) / 10) + '0');
-					_putchar((k % 10) + '0');
+					printf(" %d",k);
 				}
 				else if (k > 9)
 				{
-					_putchar(' ');
-					_putchar(' ');
-					_putchar((k / 10) + '0');
-					_putchar((k % 10) + '0');
+					printf("  %d",k);
 				}
 				else
 				{
 					if (!(j == 0))
 					{
-						_putchar(' ');
-						_putchar(' ');
-						_putchar(' ');
-						_putchar(k + '0');
+						printf("   %d",k);
 					}
 					else
 					{
-						_putchar(k + '0');
+						printf("%d",k);
 					}
 				}
 				if (j != n)
 				{
-					_putchar(',');
+					printf(",");
 				}
 			}
-			_putchar('\n');
-		}
-		
+			printf("\n");
+		}		
 	}
 }
