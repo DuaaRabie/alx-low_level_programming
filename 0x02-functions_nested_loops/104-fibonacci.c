@@ -13,7 +13,7 @@ int main(void)
 
 	while (1)
 	{
-		f = f1+ f2;
+		f = f1 + f2;
 		if (f <= 4000000)
 		{
 			if ((f % 2) == 0)
