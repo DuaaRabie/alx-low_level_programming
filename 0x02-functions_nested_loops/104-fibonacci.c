@@ -55,7 +55,7 @@ int main(void)
 		f2 = sum1;
 		s2 = sum2;
 
-		if (i != 98)
+		if (i != 97)
 		{
 			printf(", ");
 		}
