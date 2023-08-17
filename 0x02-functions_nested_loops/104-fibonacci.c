@@ -59,7 +59,10 @@ int main(void)
 		{
 			printf(", ");
 		}
-		printf("\n");
+		else
+		{
+			printf("\n");
+		}
 	}
 	return (0);
 }
