@@ -35,7 +35,7 @@ int main(void)
 	unsigned long sum1, sum2, value = 100000000;
 	int i, seperator;
 
-	for (i = 0; i < 99; i++)
+	for (i = 0; i < 98; i++)
 	{
 		if (s1 > 0)
 		{
