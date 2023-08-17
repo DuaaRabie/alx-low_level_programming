@@ -41,13 +41,13 @@ int main(void)
 		{
 			printf("%lu", s1);
 		}
-		seperator = Length(value) - 1 - numLength(f1);
+		seperator = Length(value) - 1 - Length(f1);
 		while (s1 > 0 && seperator > 0)
 		{
 			printf("%d", 0);
 			seperator--;
 		}
-		printf("%lu", f);
+		printf("%lu", f1);
 		sum1 = (f1 + f2) % value;
 		sum2 = s1 + s2 + (f1 + f2) / value;
 		f1 = f2;
