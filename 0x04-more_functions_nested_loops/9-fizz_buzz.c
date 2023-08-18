@@ -1,33 +1,47 @@
 #include "main.h"
 /**
- * fizz_buzz - prints numburs and fizzbuzz
+ * main - prints numburs and fizzbuzz
  *
- * Return: void
+ * Return: 0
 */
-void fizz_buzz(void)
+
+int main(void)
 {
 	int i;
-	int n = 1; 
+	int n = 1;
 
-	for (i = 0; i <= 99; i++)
+	for (i = 0; i < 100; i++)
 	{
+		if ((n % 3 == 0) || (n % 5 == 0))
+		{
 			if ((n % 3 == 0) && !(n % 5 == 0))
 			{
-				printf("Fizz ");
+				printf("Fizz");
 			}
 			else if (!(n % 3 == 0) && (n % 5 == 0))
 			{
-				printf("Buzz ");
+				printf("Buzz");
 			}
 			else if ((n % 3 == 0) && (n % 5 == 0))
 			{
-				printf("FizzBuzz ");
+				printf("FizzBuzz");
 			}
+		}
 		else
 		{
 			printf("%d ", n);
 		}
+
 		n++;
+
+		if (i != 99)
+		{
+			printf(" ");
+		}
+		else
+		{
+			printf("\n");
+		}
 	}
-	printf("\n");
+	return (0);
 }
