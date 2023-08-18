@@ -16,9 +16,9 @@ void print_number(int n)
 		_putchar('-');
 		n *= -1;
 	}
-	while (n)
+	while (m)
 	{
-		n = n / 10;
+		m = m / 10;
 		power *= 10;
 	}
 	m = n;
