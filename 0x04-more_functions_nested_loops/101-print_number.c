@@ -1,34 +1,47 @@
 #include "main.h"
 
 /**
- * main - check the code
- *
+ * print_number - check the code
+ * @n: number
  * Return: 0
  */
 void print_number(int n)
 {
-	int length = 1;
-	int div;
-	int mod;
+	int power = 1;
+	int m = n;
+	int ndiv = 0;
 
+	if (n < 0)
+	{
+		_putchar('-');
+		n *= -1;
+	}
 	while (n)
 	{
 		n = n / 10;
-		length += 1;
+		power *= 10;
 	}
-	
-	while (n)
+	m = n;
+	if (m != 0 && power != 0)
 	{
-		while (length)
+		while (m)
 		{
-			div = n / (10 * length);
-			if (div == 0)
-			{ 
-				mod = n / (10 * length);
-				_putchar(mod);
+			while (power)
+			{
+				power /= 10;
+				if (power != 0)
+				{
+					ndiv = (m / power);
+					ndiv = ndiv + 48;
+					_putchar(ndiv);
+					m = (m % power);
+				}
 			}
-			n--;
 		}
-
+	}
+	else
+	{
+		ndiv = ndiv + 48;
+		_putchar(ndiv);
 	}
 }
