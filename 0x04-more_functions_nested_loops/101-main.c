@@ -5,8 +5,7 @@ int main(void)
 {
 	int mini = INT_MIN;
 	int maxi = INT_MAX;
-	printf("%d \n %d",maxi,mini);
-
+	
 	print_number(0);
 	_putchar('\n');
 	print_number(3);
@@ -21,7 +20,7 @@ int main(void)
 	_putchar('\n');
 	print_number(-4096);
 	_putchar('\n');
-	print_number(21474836);
+	print_number(maxi);
 	_putchar('\n');
 	print_number(mini);
 	_putchar('\n');

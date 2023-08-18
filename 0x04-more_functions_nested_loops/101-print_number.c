@@ -7,41 +7,18 @@
  */
 void print_number(int n)
 {
-	int power = 1;
-	int m = n;
-	int ndiv = 0;
+	unsigned int m = n;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		n *= -1;
+		m = -m;
 	}
-	while (m)
+
+	if ((m / 10) > 0)
 	{
-		m = m / 10;
-		power *= 10;
+		print_number(m / 10);
 	}
-	m = n;
-	if (m != 0 && power != 0)
-	{
-		while (m)
-		{
-			while (power)
-			{
-				power /= 10;
-				if (power != 0)
-				{
-					ndiv = (m / power);
-					ndiv = ndiv + 48;
-					_putchar(ndiv);
-					m = (m % power);
-				}
-			}
-		}
-	}
-	else
-	{
-		ndiv = ndiv + 48;
-		_putchar(ndiv);
-	}
+
+	_putchar((m % 10) + 48);
 }
