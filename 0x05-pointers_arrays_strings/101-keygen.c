@@ -9,14 +9,10 @@
  */
 int main(void)
 {
-	int password[20];
-	int count;
+	int password;
 
-	for (count = 0; count < 20; count++)
-	{
-		srand(time(0));
-		password[count] = rand() - RAND_MAX / 2;
-		printf("%d\n",password[count]);
-	}
+	srand(time(0));
+	password = rand();
+	printf("%d",password);
 	return (0);
 }
