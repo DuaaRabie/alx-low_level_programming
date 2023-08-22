@@ -14,12 +14,12 @@ void puts_half(char *str)
 	{
 		length += 1;
 	}
-	if (length % 2 == 0)
-	{
+/*	if (length % 2 == 0)
+	{*/
 		for (count = length / 2; str[count] != '\0'; count++)
-		{
+		
 			_putchar(str[count]);
-		}
+	/*	}
 	}
 	else
 	{
@@ -27,6 +27,6 @@ void puts_half(char *str)
 		{
 			_putchar(str[count + 1]);
 		}
-	}
+	}*/
 	_putchar('\n');
 }
