@@ -16,6 +16,7 @@ int main(void)
 	{
 		srand(time(0));
 		password[count] = rand() - RAND_MAX / 2;
+		printf("%d\n",password[count]);
 	}
 	return (0);
 }
