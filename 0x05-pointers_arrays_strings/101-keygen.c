@@ -10,9 +10,15 @@
 int main(void)
 {
 	int password;
+	int sum;
 
-	srand(time(0));
-	password = rand();
-	printf("%d",password);
+	srand(time(NULL));
+	while (sum < 2772)
+	{
+		password = rand() % 128;
+		sum += password;
+		putchar(password);
+	}
+	putchar(2772 - sum);
 	return (0);
 }
