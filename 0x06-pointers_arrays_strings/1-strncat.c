@@ -38,5 +38,6 @@ char *_strncat(char *dest, char *src, int n)
 		dest[i] = src[j];
 		j++;
 	}
+	dest[total_length] = '\0';
 	return (dest);
 }
