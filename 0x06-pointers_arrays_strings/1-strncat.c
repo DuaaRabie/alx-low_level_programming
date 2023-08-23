@@ -34,7 +34,7 @@ char *_strncat(char *dest, char *src, int n)
 	l1 = length(dest);
 	l2 = length(src);
 	total_length = l1 + n;
-	
+
 	if (n < l2)
 	{
 		for (i = l1; i < total_length; i++)
