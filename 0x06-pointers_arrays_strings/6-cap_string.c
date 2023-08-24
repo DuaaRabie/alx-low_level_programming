@@ -12,13 +12,13 @@ char *cap_string(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; del[j] != '\0'; j++)
+		if (str[i] > 96 && str[i] < 123)
 		{
-			if (str[i] == del[j])
-			{
-				if (str[i] > 96 && str[i] < 123)
-					str[i + 1] -= 32;
-			}
+			for (j = 0; del[j] != '\0'; j++)
+				{
+					if (str[i - 1] == del[j])
+						str[i] -= 32;
+				}
 		}
 	}
 	return (str);
