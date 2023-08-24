@@ -10,7 +10,7 @@ char *cap_string(char *str)
 	int i, j;
 	char del[] = " \t\n,;.!?\"(){}";
 
-	for (i = 1; str[i] != '\0'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
 		for (j = 0; del[j] != '\0'; j++)
 		{
