@@ -36,7 +36,6 @@ char *_strncpy(char *dest, char *src, int n)
 		{
 			dest[i] = src[i];
 		}
-		dest[n - 1] = '\0';
 	}
 	else if (l1 < n)
 	{
