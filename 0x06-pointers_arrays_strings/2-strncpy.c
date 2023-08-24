@@ -73,6 +73,10 @@ char *_strncpy(char *dest, char *src, int n)
 			{
 				dest[i] = src[i];
 			}
+			for (i = l1 - 1; i < l2; i++)
+			{
+				 dest[i] = '\0';
+			}
 		}
 	}
 	return (dest);
