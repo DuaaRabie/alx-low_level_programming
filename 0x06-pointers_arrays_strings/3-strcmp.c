@@ -52,13 +52,16 @@ int _strcmp(char *s1, char *s2)
 	int l2 = length(s2);*/
 	int def = s1[0] - s2[0];
 
+	if (def < 0)
+		def *= -1;
+
 	if (sum1 == sum2)
 	{
 		return (0);
 	}
 	else if (sum1 < sum2)
 	{
-		return (def);
+		return ((-1 * def));
 	}
 	else
 	{
