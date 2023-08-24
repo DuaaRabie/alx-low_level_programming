@@ -39,11 +39,8 @@ char *_strncat(char *dest, char *src, int n)
 	{
 		for (i = l1; i < total_length; i++)
 		{
-			if (src[j] != '\0')
-			{
-				dest[i] = src[j];
-				j++;
-			}
+			dest[i] = src[j];
+			j++;
 		}
 	}
 
@@ -51,11 +48,8 @@ char *_strncat(char *dest, char *src, int n)
 	{
 		for (i = l1; i < (l1 + l2); i++)
 		{
-			if (src[j] != '\0')
-			{
-				dest[i] = src[k];
-				k++;
-			}
+			dest[i] = src[k];
+			k++;
 		}
 	}
 	dest[total_length] = '\0';
