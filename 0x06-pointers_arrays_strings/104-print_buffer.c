@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print buffer - print contents of a buffer
+ * print_buffer - print contents of a buffer
  * @b: the buffer
  * @size: size of the buffer
  * Return: nothing
