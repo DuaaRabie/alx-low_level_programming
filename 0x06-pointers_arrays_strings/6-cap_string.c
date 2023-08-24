@@ -17,6 +17,8 @@ char *cap_string(char *str)
 			if (str[i] == del[j])
 				if(str[i+1] > 96 && str[i+1] < 123)
 					str[i + 1] -= 32;
+			if (str[i] == '\t')
+				str[i] = ' ';
 		}
 	}
 	return (str);
