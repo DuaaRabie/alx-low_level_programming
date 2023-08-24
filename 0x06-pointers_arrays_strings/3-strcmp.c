@@ -41,21 +41,41 @@ int length(char *str)
  * @s1: pointer to first string
  * @s2: pointer to second string
  * Return: 0 equal
- * -15 s1 is less than s2
- *  15 s1 is greater than s2
+ * negative value if s1 is less than s2
+ * positive value if s1 is greater than s2
  */
 int _strcmp(char *s1, char *s2)
 {
-	int sum1 = strsum(s1);
+	/*int sum1 = strsum(s1);
 	int sum2 = strsum(s2);
-/*	int l1 = length(s1);
+	int l1 = length(s1);
 	int l2 = length(s2);*/
-	int def = s1[0] - s2[0];
+	int dif = 0;
+	int i = 0;
 
-	if (def < 0)
-		def *= -1;
+	/*int larger = 0;
 
-	if (sum1 == sum2)
+	if (l1 - l2 > 0)
+		larger = l1;
+	else if (l1 - l2 < 0)
+		larger = l2;
+	else 
+		larger = l1;*/
+
+
+	for (; (s1[i] != '\0' || s2[i] != '\0'); i++)
+	{
+		if(s1[i] == s2[i])
+			continue;
+		else
+			break;
+	}
+	
+	dif = s1[i] - s2[i];
+
+
+
+	/*if (dif == 0)
 	{
 		return (0);
 	}
@@ -66,5 +86,6 @@ int _strcmp(char *s1, char *s2)
 	else
 	{
 		return (def);
-	}
+	}*/
+	return (dif);
 }
