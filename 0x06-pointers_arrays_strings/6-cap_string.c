@@ -10,9 +10,9 @@ char *cap_string(char *str)
 	int i, j;
 	char del[] = " \t\n,;.!?\"(){}";
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 1; str[i] != '\0'; i++)
 	{
-		for (j = 1; del[j] != '\0'; j++)
+		for (j = 0; del[j] != '\0'; j++)
 		{
 			if (str[i] == del[j])
 				if(str[i + 1] > 96 && str[i + 1] < 123)
