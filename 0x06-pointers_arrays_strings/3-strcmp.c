@@ -20,6 +20,23 @@ int strsum(char *str)
 
 
 /**
+ * length - count the string length
+ * @str: pointer to string
+ * Return: the length
+ */
+int length(char *str)
+{
+	int count = 0;
+
+	while (str[count] != '\0')
+	{
+		count += 1;
+	}
+	return (count);
+}
+
+
+/**
  * _strcmp - compare two strings
  * @s1: pointer to first string
  * @s2: pointer to second string
@@ -31,20 +48,20 @@ int _strcmp(char *s1, char *s2)
 {
 	int sum1 = strsum(s1);
 	int sum2 = strsum(s2);
-	int def = sum1 - sum2;
+/*	int l1 = length(s1);
+	int l2 = length(s2);*/
+	int def = s1[0] - s2[0];
 
-	/*if (sum1 == sum2)
+	if (sum1 == sum2)
 	{
-		return (s);
+		return (0);
 	}
 	else if (sum1 < sum2)
 	{
-		return (-15);
+		return (def);
 	}
-	else if (sum1 > sum2)
+	else
 	{
-		return (15);
+		return (def);
 	}
-	else*/
-	return (def);
 }
