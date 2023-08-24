@@ -30,7 +30,6 @@ char *_strncpy(char *dest, char *src, int n)
 	int i;
 
 	l1 = length(src);
-	/*l2 = length(dest);*/
 	if (l1 >= n)
 	{
 		for (i = 0; i < n; i++)
@@ -51,33 +50,5 @@ char *_strncpy(char *dest, char *src, int n)
 			dest[i] = '\0';
 		}
 	}
-	/*else if (l1 >= n && l2 < n)
-	{
-		for (i = 0; i < l2; i++)
-		{
-			dest[i] = src[i];
-		}
-	}
-	else if (l1 < n && l2 < n)
-	{
-		if (l1 > l2)
-		{
-			for (i = 0; i < l2; i++)
-			{
-				dest[i] = src[i];
-			}
-		}
-		if (l2 > l1)
-		{
-			for (i = 0; i < l1; i++)
-			{
-				dest[i] = src[i];
-			}
-			for (i = l1 - 1; i < l2; i++)
-			{
-				 dest[i] = '\0';
-			}
-		}
-	}*/
 	return (dest);
 }
