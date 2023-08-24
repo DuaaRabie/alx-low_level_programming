@@ -26,11 +26,11 @@ int length(char *str)
  */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int l1, l2;
+	int l1;
 	int i;
 
 	l1 = length(src);
-	l2 = length(dest);
+	/*l2 = length(dest);*/
 	if (l1 >= n)
 	{
 		for (i = 0; i < n - 1 ; i++)
@@ -46,12 +46,12 @@ char *_strncpy(char *dest, char *src, int n)
 				dest[i] = src[i];
 			}
 		}
-		for (i = l1 - 1; i < n; i++)
+		for (i = l1; i < n; i++)
 		{
 			dest[i] = '\0';
 		}
 	}
-	else if (l1 >= n && l2 < n)
+	/*else if (l1 >= n && l2 < n)
 	{
 		for (i = 0; i < l2; i++)
 		{
@@ -78,6 +78,6 @@ char *_strncpy(char *dest, char *src, int n)
 				 dest[i] = '\0';
 			}
 		}
-	}
+	}*/
 	return (dest);
 }
