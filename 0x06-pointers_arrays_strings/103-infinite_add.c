@@ -55,25 +55,20 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		sum = rest + p[j] + r[j];
 		if (sum >= 106)
 		{
-			r[j + 1] = sum - 58;
+			r[j] = sum - 58;
 			rest = 1;
 		}
 		else
 		{
-			r[j + 1] = sum - 48;
+			r[j] = sum - 48;
 			rest = 0;
 		}
 	}
-	r[l + 1] = '\0';
 	if (rest == 1)
-		r[0] = 49;
-	else
 	{
-		for (j = 0 ; j < l; j++)
-		{
-			r[j] = r[j + 1];
-		}
-		r[l] = '\0';
+		for (i = l; i <= 0; i++)
+			r[i + 1] = r[i];
+		r[0] = 49;
 	}
 	return (r);
 }
