@@ -63,7 +63,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			rest = 0;
 		}
 	}
-		r[l - 1] = '\0';
+		r[l + 1] = '\0';
 	if (rest == 1)
 		r[0] = 49;
 	return (r);
