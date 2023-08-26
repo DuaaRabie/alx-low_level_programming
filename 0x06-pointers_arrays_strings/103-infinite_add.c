@@ -68,9 +68,12 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	if (rest == 1)
 		r[0] = 49;
 	else
+	{
 		for (j = 0 ; j < l; j++)
 		{
 			r[j] = r[j + 1];
 		}
+		r[l] = '\0';
+	}
 	return (r);
 }
