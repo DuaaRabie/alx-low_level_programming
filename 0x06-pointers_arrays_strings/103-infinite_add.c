@@ -27,9 +27,8 @@ int length(char *str)
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, j, sum;
+	int i, j, sum, rest = 0, l = length(n1) + 1, ll = length(n2) + 1, k = l;
 	char *p = n1, *pp = n2;
-	int rest = 0, l = length(n1) + 1, ll = length(n2) + 1, k = l;
 
 	if (l < ll)
 	{
@@ -50,7 +49,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	}
 	for (j = l - ll - 1; j >= 0; j--)
 		r[j] = '0';	
-
 	for (j = l - 1; j >= 0; j--)
 	{
 		sum = rest + p[j] + r[j];
@@ -66,7 +64,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		}
 	}
 	for (i = l + 1; i <= size_r; i++)
-		r[l + 1] = '\0';
+		r[i] = '\0';
 	if (rest == 1)
 		r[0] = 49;
 	return (r);
