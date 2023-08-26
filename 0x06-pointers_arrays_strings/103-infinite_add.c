@@ -16,7 +16,6 @@ int length(char *str)
 	return (count);
 }
 
-
 /**
  * *infinite_add - adds two numbers
  * @n1: first number
@@ -28,31 +27,53 @@ int length(char *str)
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i;
-	int sum;
-	int rest = 0;
-	int l1 = length(n1);
-	int z1 = sizeof(n1);
+	int i, j, sum;
+	char *p = n1, *pp = n2;
+	int rest = 0, l = length(n1) + 1, ll = length(n2) + 1, k = l;
 
-	for (i = l1 - 1; i >= 0; i--)
+	if (l < ll)
 	{
-		sum = rest + n1[i] + n2[i];
+		l = ll;
+		ll = k;
+		p = n2;
+		pp = n1;
+	}
+	if (l >= size_r)
+	{
+		return (0);
+	}
+	for (j = l - 1; j >= l - ll;)
+	{
+		for (i = ll - 1; i >= 0; i--)
+		{
+			r[j] = pp[i];
+			j--;
+		}
+	}
+	for (j = l - ll - 1; j >= 0; j--)
+	{
+		r[j] = '0';
+	}
+	r[l] = '\0';
+	for (j = l - 1; j >= 0; j--)
+	{
+		sum = rest + p[j] + r[j];
 		if (sum >= 106)
 		{
-			r[i] = sum - 58;
+			r[j + 1] = sum - 58;
 			rest = 1;
 		}
 		else
 		{
-			r[i] = sum - 48;
+			r[j + 1] = sum - 48;
 			rest = 0;
 		}
-
 	}
-	if (z1 >= size_r)
+	r[l + 1] = '\0';
+
+	if (rest == 1)
 	{
-		return (0);
+		r[0] = 49;
 	}
-
 	return (r);
 }
