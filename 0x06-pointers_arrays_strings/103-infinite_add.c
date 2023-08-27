@@ -46,7 +46,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	}
 	for (j = l - ll; j >= 0; j--,  r[j] = '0')
 	r[l] = '\0';
-	for (j = l - 1 ; j >= 0; j--)
+	for (j = l - 2; j >= 0; j--)
 	{
 		sum = rest + p[j] + r[j];
 		if (sum >= 106)
@@ -62,7 +62,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	}
 	if (rest == 1)
 	{
-		for (i = l; i >= 0; i--)
+		for (i = l - 1; i >= 0; i--)
 			r[i + 1] = r[i];
 		r[0] = 49;
 	}
