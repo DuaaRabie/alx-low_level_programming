@@ -69,5 +69,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			r[i + 1] = r[i];
 		r[0] = 49;
 	}
+	r[l + 1] = '\0';
 	return (r);
 }
