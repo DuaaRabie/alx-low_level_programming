@@ -14,6 +14,11 @@ void print_buffer(char *b, int size)
 
 	for (i = 1; i <= 10; i++)
 	{
+		if (remain == 0)
+		{
+			printf(" ");
+			break;
+		}
 		while (remain >= 1)
 		{
 			j = 0;
