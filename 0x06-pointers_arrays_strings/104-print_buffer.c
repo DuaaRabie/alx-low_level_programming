@@ -20,22 +20,23 @@ void print_buffer(char *b, int size)
 			printf("%08x: ", 0 + count);
 			for (k = 0; k < 10; k++)
 			{
+				if (remain == 0)
+					break;
 				if (remain > 0)
 				{
 					printf("%02x", b[count + k]);
 					remain--;
 					j++;
 				}
-				if (k % 2 == 1 && remain > 0)
-					printf(" ");
 				if (!(remain > 0))
 				{
 					for (r = k; r < 10; r++)
 					{
 						printf("  ");
 					}
-					break;
 				}
+				if (k % 2 == 1)
+					printf(" ");
 			}
 			for (k = count; k < count + 10; k++, j--)
 			{
