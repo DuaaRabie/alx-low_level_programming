@@ -28,11 +28,12 @@ void print_buffer(char *b, int size)
 				}
 				if (k % 2 == 1)
 					printf(" ");
-
 				if (!(remain > 0))
 				{
 					for (r = k; r < 10; r++)
+					{
 						printf("  ");
+					}
 					break;
 				}
 			}
