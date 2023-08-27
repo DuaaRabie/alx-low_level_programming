@@ -1,4 +1,5 @@
 #include "main.h"
+#include <ctype.h>
 
 /**
  * print_buffer - print contents of a buffer
@@ -8,27 +9,43 @@
  */
 void print_buffer(char *b, int size)
 {
-	int i, j, k;
-	int count = 1;
-	int c = 0;
+	int i, j, k, r;
+	int count = 0, remain = size;
 
-	for (i = 1; i < 10; i++)
+	for (i = 1; i <= 10; i++)
 	{
-		for (j = 0; j < size; j++)
+		while (remain > 1)
 		{
-			printf("%04x ", &b[i + c]);
-			printf("%04x ", &b[j + 2 + c]);
-			printf("%04x ", &b[j + 4 + c]);
-			printf("%04x ", &b[j + 6 + c]);
-			printf("%04x ", &b[j + 8 + c]);
-			printf("%04x ", &b[j + 10 + c]);
-			for (k = i * count; k <= 10; k++)
+			j = 0;
+			printf("%08x: ", 0 + count);
+			for (k = 0; k < 10; k++)
 			{
-				printf("%c", b[k]);
+				if (remain > 0)
+				{
+					printf("%02x", b[count + k]);
+					remain--;
+					j++;
+				}
+				if (k % 2 == 1)
+					printf(" ");
+
+				if (!(remain > 0))
+				{
+					for (r = k; r < 10; r++)
+						printf("  ");
+					break;
+				}
 			}
-			c += 10;
+
+			for (k = count; k < count + 10; k++, j--)
+			{
+				if (isprint(b[k]) && j > 0)
+					printf("%c", b[k]);
+				else if (iscntrl(b[k]) && j > 0)
+					printf(".");
+			}
+			printf("\n");
 			count += 10;
 		}
-		printf("\n");
 	}
 }
