@@ -48,6 +48,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	}
 	for (j = l - ll - 1; j >= 0; j--)
 		r[j] = '0';
+	r[l] = '\0';
 	for (j = l - 1 ; j >= 0; j--)
 	{
 		sum = rest + p[j] + r[j];
