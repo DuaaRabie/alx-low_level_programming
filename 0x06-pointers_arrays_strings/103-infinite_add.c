@@ -42,9 +42,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	for (j = l - 1; j >= l - ll;)
 	{
 		for (i = ll - 1; i >= 0; i--, j--)
-		{
 			r[j] = pp[i];
-		}
 	}
 	for (j = l - ll - 1; j >= 0; j--)
 		r[j] = '0';
