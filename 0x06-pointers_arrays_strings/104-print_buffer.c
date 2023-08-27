@@ -26,7 +26,7 @@ void print_buffer(char *b, int size)
 					remain--;
 					j++;
 				}
-				if (k % 2 == 1)
+				if (k % 2 == 1 && remain > 0)
 					printf(" ");
 				if (!(remain > 0))
 				{
@@ -37,7 +37,6 @@ void print_buffer(char *b, int size)
 					break;
 				}
 			}
-
 			for (k = count; k < count + 10; k++, j--)
 			{
 				if (isprint(b[k]) && j > 0)
