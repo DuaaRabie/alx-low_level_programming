@@ -12,6 +12,8 @@ void print_buffer(char *b, int size)
 	int i, j, k;
 	int count = 0, remain = size;
 
+	if (remain == 0)
+		printf("%c",'\0');
 	for (i = 1; i <= 10; i++)
 	{
 
