@@ -16,7 +16,6 @@ void print_buffer(char *b, int size)
 		printf(" ");
 	for (i = 1; i <= 10; i++)
 	{
-
 		while (remain >= 1)
 		{
 			j = 0;
