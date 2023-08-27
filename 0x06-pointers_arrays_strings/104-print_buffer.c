@@ -40,8 +40,8 @@ void print_buffer(char *b, int size)
 				else if (iscntrl(b[k]) && j > 0)
 					printf(".");
 			}
-			printf("\n");
 			count += 10;
 		}
+		printf("\n");
 	}
 }
