@@ -9,7 +9,7 @@
  */
 void print_buffer(char *b, int size)
 {
-	int i, j, k, r;
+	int i, j, k;
 	int count = 0, remain = size;
 
 	for (i = 1; i <= 10; i++)
@@ -20,20 +20,15 @@ void print_buffer(char *b, int size)
 			printf("%08x: ", 0 + count);
 			for (k = 0; k < 10; k++)
 			{
-				if (remain == 0)
-					break;
 				if (remain > 0)
 				{
 					printf("%02x", b[count + k]);
 					remain--;
 					j++;
 				}
-				if (!(remain > 0))
+				else if (!(remain > 0))
 				{
-					for (r = k; r < 10; r++)
-					{
-						printf("  ");
-					}
+					printf("  ");
 				}
 				if (k % 2 == 1)
 					printf(" ");
