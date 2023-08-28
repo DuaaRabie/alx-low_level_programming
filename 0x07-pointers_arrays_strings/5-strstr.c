@@ -31,7 +31,7 @@ char *_strstr(char *haystack, char *needle)
 	unsigned int j = 0;
 	char *result;
 
-	for (i = 0; i < slen; i++)
+	for (i = 0; i < slen && j < reflen; i++)
 	{
 		if (*(haystack + i) == *(needle + j))
 		{
