@@ -47,6 +47,5 @@ char *_strstr(char *haystack, char *needle)
 		}
 	}
 
-return (needle + reflen);
+return (haystack + slen);
 }
-
