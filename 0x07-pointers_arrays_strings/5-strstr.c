@@ -31,23 +31,23 @@ char *_strstr(char *haystack, char *needle)
 	unsigned int j = 0;
 	char *result;
 
-	for (i = 0; i < slen && j < reflen; i++)
+	for (i = 0; i < slen; i++)
 	{
 		if (*(haystack + i) == *(needle + j))
 		{
+			j++;
 			if (*(haystack + i) == *(needle + 0))
 				result = (haystack + i);
-			j++;
+			if (j == reflen)
+				return (result);
 		}
 		else 
+		{
+			i -=j;
 			j = 0;
+		}
 	}
 
-	if (j == reflen)
-		return (result);
-	else
-		return ('\0');
-
-
+	return (NULL);
 }
 
