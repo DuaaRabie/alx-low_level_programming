@@ -27,27 +27,21 @@ char *_strstr(char *haystack, char *needle)
 {
 	unsigned int reflen = length(needle);
 	unsigned int slen = length(haystack);
-	unsigned int i, j;
-	int count = 0;
-	int *result;
+	unsigned int i;
+	unsigned int j = 0;
+	char *result;
 
-	for (i = 0; i < reflen; i++)
+	for (i = 0; i < slen; i++)
 	{
-		for (j = ; j < slen; j++)
+		if (*(haystack + i) == *(needle + j))
 		{
-			if (*(haystack + i) == *(needle + j))
-			{
-				count++;
-			}
-			else
-				count--;
-			if (count == 1)
-				result = haystack + i;
-
+			if (*(haystack + i) == *(needle + 0))
+				result = (haystack + i);
+			j++;
 		}
 	}
 
-	if (count == slen - 1)
+	if (j == reflen)
 		return (result);
 	else
 		return ('\0');
