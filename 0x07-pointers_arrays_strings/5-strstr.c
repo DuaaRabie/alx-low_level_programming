@@ -31,8 +31,8 @@ char *_strstr(char *haystack, char *needle)
 	unsigned int j = 0;
 	char *result;
 
-	if (*needle == '\0' || *haystack == '\0')
-		return (NULL);
+	if (*needle == '\0' )
+		return (haystack);
 
 	for (i = 0; i < slen && j < reflen; i++)
 	{
