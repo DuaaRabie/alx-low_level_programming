@@ -7,7 +7,7 @@
  */
 unsigned int length(char *str)
 {
-	unsigned int len = 0;
+	unsigned int len = 1;
 
 	while (*str++ != '\0')
 	{
@@ -30,9 +30,9 @@ unsigned int _strspn(char *s, char *accept)
 	unsigned int slen = length(s);
 	unsigned int i, j;
 
-	for (i = 0; i <= reflen; i++)
+	for (i = 0; i < reflen; i++)
 	{
-		for (j = 0; j <= slen + 1; j++)
+		for (j = 0; j < slen; j++)
 		{
 			if (*(s + i) == *(accept + j))
 			{
