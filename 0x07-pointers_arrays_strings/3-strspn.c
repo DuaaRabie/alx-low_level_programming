@@ -32,7 +32,7 @@ unsigned int _strspn(char *s, char *accept)
 
 	for (i = 0; i <= reflen; i++)
 	{
-		for (j = 0; j <= slen; j++)
+		for (j = 0; j <= slen + 1; j++)
 		{
 			if (*(s + i) == *(accept + j))
 			{
