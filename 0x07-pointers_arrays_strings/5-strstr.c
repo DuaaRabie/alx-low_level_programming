@@ -39,6 +39,8 @@ char *_strstr(char *haystack, char *needle)
 				result = (haystack + i);
 			j++;
 		}
+		else 
+			j = 0;
 	}
 
 	if (j == reflen)
