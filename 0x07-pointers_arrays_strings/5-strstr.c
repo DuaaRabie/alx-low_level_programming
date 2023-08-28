@@ -43,7 +43,7 @@ char *_strstr(char *haystack, char *needle)
 		}
 		else
 		{
-			i -=j;
+			i -= j;
 			j = 0;
 		}
 	}
