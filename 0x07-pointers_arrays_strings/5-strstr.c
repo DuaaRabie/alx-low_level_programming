@@ -29,7 +29,7 @@ char *_strstr(char *haystack, char *needle)
 	unsigned int slen = length(haystack);
 	unsigned int i;
 	unsigned int j = 0;
-	char *result;
+	char *result = NULL;
 
 	for (i = 0; i < slen; i++)
 	{
@@ -41,13 +41,13 @@ char *_strstr(char *haystack, char *needle)
 			if (j == reflen)
 				return (result);
 		}
-		else 
+		else if (j != 0)
 		{
-			i -=j;
 			j = 0;
+			i -= j;
 		}
 	}
 
-	return (NULL);
+return (result);
 }
 
