@@ -29,25 +29,26 @@ char *_strstr(char *haystack, char *needle)
 	unsigned int slen = length(haystack);
 	unsigned int i;
 	unsigned int j = 0;
-	char *result = NULL;
+	char *result;
 
 	for (i = 0; i < slen; i++)
 	{
 		if (*(haystack + i) == *(needle + j))
 		{
-			j++;
-			if (*(haystack + i) == *(needle + 0))
+			if (j == 0)
 				result = (haystack + i);
+			j++;
 			if (j == reflen)
 				return (result);
 		}
 		else if (j != 0)
 		{
-			j = 0;
 			i -= j;
+			j = 0;
+			result = NULL;
 		}
 	}
 
-return (result);
+return (needle + slen);
 }
 
