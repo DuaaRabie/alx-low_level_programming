@@ -24,8 +24,6 @@ int is_prime_number(int n)
 {
 	int div = n - 1;
 
-	if (n < 0)
-		return (1);
 	if (n == 0 || n == 1)
 		return (0);
 	return (check_prime(n, div));
