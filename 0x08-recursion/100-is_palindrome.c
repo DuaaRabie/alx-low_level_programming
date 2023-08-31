@@ -33,14 +33,9 @@ int simetric_check(char *s, int length)
  */
 int is_palindrome(char *s)
 {
-	int last = -1;
-	int i = 0;
+	int last = strlen(s);
 
-	while (s[i] != '\0')
-	{
-		last++;
-		i++;
-	}
-
-	return (simetric_check(s, last));
+	if (*s == '\0')
+		return (1);
+	return (simetric_check(s, --last));
 }
