@@ -10,7 +10,7 @@
 int main(int argc, char *argv[])
 {
 	int add = 0;
-	int count;
+	int count, i;
 
 	if (argc < 2)
 	{
@@ -20,10 +20,13 @@ int main(int argc, char *argv[])
 	{
 		for (count = 1; count < argc; count++)
 		{
-			if (!(*argv[count] > 47 && *argv[count] < 58))
+			for (i = 0; argv[count][i] != '\0'; i++)
 			{
-				printf("Error\n");
-				return (1);
+				if (!(argv[count][i] >= '0' && argv[count][i] <= '9'))
+				{
+					printf("Error\n");
+					return (1);
+				}
 			}
 			add += atoi(argv[count]);
 		}
