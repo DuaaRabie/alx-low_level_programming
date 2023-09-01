@@ -1,5 +1,3 @@
 #!/bin/bash
-for file in *.c; do
-	gcc -c "$file" -o "{$file%.c}.o"
-done
+gcc -c *.c -I.
 ar -rc liball.a *.o
