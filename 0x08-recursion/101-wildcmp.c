@@ -11,7 +11,7 @@ int wildcmp(char *s1, char *s2)
 	int l1 = strlen(s1), l2 = strlen(s2);
 
 
-	if (l1 == 1)
+	if (l1 <= 1)
 	{
 		if (l2 == 1 && (s1[0] == s2[0] || s2[0] == '*'))
 			return (1);
