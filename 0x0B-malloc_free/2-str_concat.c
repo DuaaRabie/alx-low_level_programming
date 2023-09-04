@@ -13,11 +13,11 @@ char *str_concat(char *s1, char *s2)
 	unsigned int i, j = 0;
 
 	if (s1 == NULL)
-		size1 = 0;
+		size1 = 1;
 	else
 		size1 = sizeof(s1);
 	if (s2 == NULL)
-		size2 = 0;
+		size2 = 1;
 	else
 		size2 = sizeof(s2);
 	size = size1 + size2 - 1;
