@@ -10,14 +10,14 @@ char *str_concat(char *s1, char *s2)
 {
 	char *ptr;
 	unsigned int size1, size2, size;
-	unsigned int i, j = 0;
+	unsigned int i = 0, j = 0;
 
 	if (s1 == NULL)
-		size1 = 1;
+		s1 = "";
 	else
 		size1 = sizeof(s1);
 	if (s2 == NULL)
-		size2 = 1;
+		s2 = "";
 	else
 		size2 = sizeof(s2);
 	size = size1 + size2 - 1;
