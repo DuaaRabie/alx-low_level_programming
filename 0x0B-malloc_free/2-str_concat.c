@@ -14,12 +14,11 @@ char *str_concat(char *s1, char *s2)
 
 	if (s1 == NULL)
 		s1 = "";
-	else
-		size1 = sizeof(s1);
 	if (s2 == NULL)
 		s2 = "";
-	else
-		size2 = sizeof(s2);
+
+	size1 = sizeof(s1);
+	size2 = sizeof(s2);
 	size = size1 + size2 - 1;
 	ptr = malloc(size);
 
