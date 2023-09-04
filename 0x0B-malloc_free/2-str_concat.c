@@ -26,15 +26,14 @@ char *str_concat(char *s1, char *s2)
 	if (ptr == NULL)
 		return (NULL);
 
-	for (i = 0; i < size - 1; i++)
+	for (i = 0; s1[i] != '\0'; i++)
 	{
-		if (i <= size1 - 1)
-			ptr[i] = s1[i];
-		else
-		{
-			ptr[i] = s2[j];
-			j++;
-		}
+		ptr[i] = s1[i];
+	}
+	for (; s2[j] != '\0'; i++)
+	{
+		ptr[i] = s2[j];
+		j++;
 	}
 	ptr[size - 1] = '\0';
 
