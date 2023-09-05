@@ -18,12 +18,12 @@ char **strtow(char *str)
 		if (str[i] != ' ' && str[i - 1] == ' ')
 			words++;
 	}
-	split = malloc(sizeof(char *) * words + 1);
+	split = malloc(sizeof(char *) * (words + 1));
 	if (split == NULL)
 		return (NULL);
 	for (i = 0, j = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] == ' ' && (i == 0 || str[i - 1] == ' '))
+		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
 		{
 			int len = 0;
 
