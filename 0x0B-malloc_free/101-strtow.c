@@ -9,38 +9,43 @@
 char **strtow(char *str)
 {
 	char **split;
-	int *count = NULL;
-	int i, j, k = 0, words = 0, c = 0;
+	int i, j, k = 0, words = 1;
 
-	if (str == NULL)
+	if (str == NULL || str[0] == '\0')
 		return (NULL);
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		count[c] = 0;
-		for (j = 0; str[i] != ' '; j++)
+		if (str[i] != ' ' && str[i - 1] == ' ')
+			words++;
+	}
+	split = malloc(sizeof(char*) * words + 1);
+
+	for (i = 0, j = 0; str[i] != '\0'; i++)
+	{
+		if (str[k] == ' ' && (i == 0 || str[i - 1] == ' ' ))
 		{
-			count[c] +=1;
+			int len = 0;
+			while (str[i + len] != ' ' && str[i + len] != '\0')
+				len++;
+
+			split[j] = malloc(sizeof(char) * (len + 1));
+			if (split[j] == NULL)
+			{
+				for (k = 0; k < j; k++)
+					free(split[k]);
+				free(split);
+				return (NULL);
+			}
+
+			for (k = 0; k < len; k++)
+				split[j][k] = str[i + k];
+			split[j][k] = '\0';
+			j++;
 		}
-		c++;
-		words += 1;
-	}
-	count[c] += 1;
-
-	split = malloc(sizeof(char) * words);
-	for (i = 0; i < c; i++)
-	{
-		split[i] = malloc(sizeof(char) * (count[i] + 1));
 	}
 
-	for (i = 0, j = 0; str[i] != '\0'; i++, j++)
-	{
-		if (str[k] == ' ')
-			split[i][j] = '\n';
-		else
-			split[i][j] = str[i];
-	}
-	split[i][j] = '\n';
+	split[j][0] = '\n';
 
 	return (split);	
 	
