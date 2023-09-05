@@ -9,13 +9,13 @@
 char **strtow(char *str)
 {
 	char **split;
-	int i, j, k = 0, words = 1;
+	int i, j, k = 0, words = 0;
 
-	if (str == NULL || str[0] == '\0')
+	if (str == NULL || str[0] == '\0' || str[0] == ' ')
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] != ' ' && str[i - 1] == ' ')
+		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
 			words++;
 	}
 	split = malloc(sizeof(char *) * (words + 1));
