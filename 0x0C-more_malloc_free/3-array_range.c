@@ -18,8 +18,6 @@ int *array_range(int min, int max)
 	ptr = malloc(sizeof(int) * total_size);
 	if (ptr == NULL)
 		return (NULL);
-
-	memset(ptr, 0, total_size);
 	for (i = 0; ptr[i] <= max; i++, num++)
 	{
 		ptr[i] = num;
