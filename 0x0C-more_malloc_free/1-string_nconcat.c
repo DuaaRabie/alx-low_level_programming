@@ -22,7 +22,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	size1 = strlen(s1);
 	size2 = strlen(s2);
 	if (n >= size2)
-		size = size1 + size2 + 1;
+		size = size1 + size2;
 	else
 		size = size1 + n + 1;
 
