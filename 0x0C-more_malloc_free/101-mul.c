@@ -8,7 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int *num1 = &argv[1], *num2 = &argv[2];
+	int num1 = atoi(argv[1]), num2 = atoi(argv[2]), mul;
 	int *ptr;
 	int i, j;
 
@@ -30,11 +30,9 @@ int main(int argc, char *argv[])
 	}
 
 	ptr = malloc(sizeof(int) * num1 * num2);
-	if (ptr == NULL)
-		printf("NULL");
-	memset(ptr, 0, sizeof(int) * mul);
-	*ptr = mul;
-	printf("%d\n", *ptr);
+	memset(ptr, 0, sizeof(int) * num1 * num2);
+	mul = num1 * num2;
+	printf("%d\n", mul);
 
 	return (0);
 
