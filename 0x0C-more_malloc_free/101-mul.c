@@ -66,8 +66,13 @@ int main(int argc, char *argv[])
 			}
 		}
 	}
-
-	multiply(argv[1], argv[2]);
+	if (atoi(argv[1]) == 0 || atoi(argv[2]) == 0)
+	{
+		_putchar('0');
+		_putchar('\n');
+	}
+	else
+		multiply(argv[1], argv[2]);
 
 	return (0);
 
