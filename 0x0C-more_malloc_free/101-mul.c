@@ -23,17 +23,20 @@ void multiply(char *n1, char *n2)
 			result[i + j + 1] = sum % 10;
 		}
 	}
-	while (*result == 0)
-	{
-		result++;
-		len--;
-	}
 	for (i = 0; i < len; i++)
 	{
-		result[i] += '0';
-		_putchar(result[i]);
+		if (result[i] != 0)
+		{
+			for (j = i; j < len; j++)
+			{
+				result[j] += '0';
+				_putchar(result[j]);
+			}
+			break;
+		}
 	}
 	_putchar('\n');
+	free(result);
 }
 
 
