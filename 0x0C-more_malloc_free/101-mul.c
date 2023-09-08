@@ -12,7 +12,7 @@ void multiply(char *n1, char *n2)
 	int i, j, sum = 0, mul = 0;
 	int *result;
 
-	result = calloc(len, sizeof(char));
+	result = calloc(len, sizeof(int));
 	for (i = len1 - 1; i >= 0; i--)
 	{
 		for (j = len2 - 1; j >= 0; j--)
