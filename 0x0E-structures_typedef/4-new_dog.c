@@ -8,7 +8,7 @@
  * @owner: the owner value
  * Return: pointer to the dog struct
  */
-dog_t *new_dog(char *name, float age, char *owner)
+struct dog *new_dog(char *name, float age, char *owner)
 {
 	dog_t *d;
 	char *dog_name = name;
@@ -17,12 +17,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	d = malloc(sizeof(dog_t));
 	if (d == NULL)
 		return (NULL);
-	if (name)
-		(*d).name = dog_name;
-	else
-		(*d).name = NULL;
-	(*d).age = age;
-	(*d).owner = dog_owner;
+	d->name = dog_name;
+	d->age = age;
+	d->owner = dog_owner;
 
 	return (d);
 }
