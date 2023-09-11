@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "dog.h"
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * new_dog - creats varible of type dog
@@ -23,13 +24,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 	{
 		return (NULL);
 	}
-	d->name = name;
-	d->owner = owner;
+	d->name = strdup(name);
+	d->owner = strdup(owner);
 	d->age = age;
-	if (d->name == NULL || d->owner == NULL)
-	{
-		return (NULL);
-	}
 
 	return (d);
 }
