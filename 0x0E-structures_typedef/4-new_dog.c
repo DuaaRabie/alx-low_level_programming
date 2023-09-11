@@ -24,7 +24,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (name)
 		d->name = name;
 	else
-		d->name = "";
+		d->name = "(nil)";
 	d->age = age;
 	d->owner = owner;
 
