@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "dog.h"
 #include <stdlib.h>
+
 /**
  * new_dog - creats varible of type dog
  * @name: the name value
@@ -13,13 +14,17 @@ dog_t *new_dog(char *name, float age, char *owner)
 	dog_t *d;
 	char *dog_name = name;
 	char *dog_owner = owner;
+
 	(void) dog_name;
 	(void) dog_owner;
 
 	d = malloc(sizeof(struct dog));
 	if (d == NULL)
 		return (NULL);
-	d->name = name;
+	if (name)
+		d->name = name;
+	else
+		d->name = "";
 	d->age = age;
 	d->owner = owner;
 
