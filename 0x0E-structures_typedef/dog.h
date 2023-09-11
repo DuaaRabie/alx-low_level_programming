@@ -5,10 +5,10 @@
  * struct dog - type for dog
  * @name: dog name
  * @age: dog age
- * #owner: dog owner
+ * @owner: dog owner
  *
  * Description: a new type called dog that includes
- * 		dog name, age and owner
+ *              dog name, age and owner
  */
 struct dog
 {
@@ -21,4 +21,5 @@ struct dog
  * dog - type def for struct dog
  */
 typedef struct dog dog;
+
 #endif
