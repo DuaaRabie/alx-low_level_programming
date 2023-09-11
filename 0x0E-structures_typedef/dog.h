@@ -17,4 +17,8 @@ struct dog
 	char *owner;
 };
 
+/**
+ * dog - type def for struct dog
+ */
+typedef struct dog dog;
 #endif
