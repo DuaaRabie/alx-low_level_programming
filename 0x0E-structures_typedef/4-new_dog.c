@@ -11,8 +11,10 @@
 struct dog *new_dog(char *name, float age, char *owner)
 {
 	struct dog *d;
-	/*char *dog_name = name;
-	char *dog_owner = owner;*/
+	char *dog_name = name;
+	char *dog_owner = owner;
+	(void) dog_name;
+	(void) dog_owner;
 
 	d = malloc(sizeof(struct dog));
 	if (d == NULL)
