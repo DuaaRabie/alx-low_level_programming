@@ -8,9 +8,9 @@
  * @owner: the owner value
  * Return: pointer to the dog struct
  */
-struct dog *new_dog(char *name, float age, char *owner)
+dog_t *new_dog(char *name, float age, char *owner)
 {
-	struct dog *d;
+	dog_t *d;
 	char *dog_name = name;
 	char *dog_owner = owner;
 	(void) dog_name;
