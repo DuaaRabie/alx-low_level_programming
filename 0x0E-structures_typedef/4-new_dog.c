@@ -11,15 +11,15 @@
 struct dog *new_dog(char *name, float age, char *owner)
 {
 	struct dog *d;
-	char *dog_name = name;
-	char *dog_owner = owner;
+	/*char *dog_name = name;
+	char *dog_owner = owner;*/
 
 	d = malloc(sizeof(struct dog));
 	if (d == NULL)
 		return (NULL);
-	d->name = dog_name;
+	d->name = name;
 	d->age = age;
-	d->owner = dog_owner;
+	d->owner = owner;
 
 	return (d);
 }
