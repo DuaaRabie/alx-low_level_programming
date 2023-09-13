@@ -24,13 +24,14 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 
-	while (nb--)
+	while (nb)
 	{
 		printf("%02hhx", *opc++);
-		if (nb > 0)
+		if (nb > 1)
 			printf(" ");
 		else
-			printf(" \n");
+			printf("\n");
+		nb--;
 	}
 
 	return (0);
