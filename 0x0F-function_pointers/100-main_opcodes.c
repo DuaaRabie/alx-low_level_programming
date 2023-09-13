@@ -24,10 +24,9 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 
-	while (nb)
+	while (nb--)
 	{
 		printf("%02hhx%s", *opc++, " ");
-		nb--;
 	}
 	printf("\n");
 
