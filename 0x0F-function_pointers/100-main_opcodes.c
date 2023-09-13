@@ -18,13 +18,13 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-	if (nb < 0 || argv[1] == NULL)
+	if (nb < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
 
-	nb= atoi(argv[1]);
+	nb = atoi(argv[1]);
 	while (nb)
 	{
 		printf("%02hhx", *opc);
