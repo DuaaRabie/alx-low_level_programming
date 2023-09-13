@@ -1,5 +1,4 @@
 #include "3-calc.h"
-#include <string.h>
 
 /**
  * main - check the code
