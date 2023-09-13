@@ -10,7 +10,7 @@
 int main(int argc, char *argv[])
 {
 	char *opc = (char *)main;
-	int nb = atoi(argv[1]);
+	int nb;
 
 	if (argc != 2)
 	{
@@ -24,18 +24,16 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 
-	if (argv[1] != NULL)
+	nb= atoi(argv[1]);
+	while (nb)
 	{
-		while (nb && *opc)
-		{
-			printf("%02hhx", *opc);
-			*opc++;
-			if (nb > 1)
-				printf(" ");
-			else
-				printf("\n");
-			nb--;
-		}
+		printf("%02hhx", *opc);
+		*opc++;
+		if (nb > 1)
+			printf(" ");
+		else
+			printf("\n");
+		nb--;
 	}
 
 	return (0);
