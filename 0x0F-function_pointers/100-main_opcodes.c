@@ -26,9 +26,8 @@ int main(int argc, char *argv[])
 
 	while (nb)
 	{
-		printf("%02hhx%s", *opc, " ");
+		printf("%02hhx%s", *opc++, " ");
 		nb--;
-		opc += 1;
 	}
 	printf("\n");
 
