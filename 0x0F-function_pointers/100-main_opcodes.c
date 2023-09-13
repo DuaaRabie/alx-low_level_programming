@@ -2,13 +2,14 @@
 #include <stdlib.h>
 
 /**
- * main - Entry point
- *
+ * main - prints opcode
+ * @argc: number of arguments
+ * @argv: vector of arguments
  * Return: 0
  */
 int main(int argc, char *argv[])
 {
-	char *opc = (char *) main;
+	char *opc = (char *)main;
 	int nb = atoi(argv[1]);
 
 	if (argc != 2)
