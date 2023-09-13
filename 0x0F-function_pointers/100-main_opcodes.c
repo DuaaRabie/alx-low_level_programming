@@ -18,11 +18,11 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-	if (nb < 0)
+	/*if (nb < 0)
 	{
 		printf("Error\n");
 		exit(2);
-	}
+	}*/
 
 	while (nb)
 	{
