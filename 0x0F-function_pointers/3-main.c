@@ -19,16 +19,13 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	for (i = 0; i < 5; i++)
-	{	
+	{
 		if (argv[2][0] == sym[i])
 			break;
-		else
+		else if (i == 4)
 		{
-			if (i == 4)
-			{
-				printf("Error\n");
-				exit(99);
-			}
+			printf("Error\n");
+			exit(99);
 		}
 	}
 	opfun = get_op_func(argv[2]);
