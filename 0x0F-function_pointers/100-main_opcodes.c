@@ -26,9 +26,10 @@ int main(int argc, char *argv[])
 
 	if (argv[1] != NULL)
 	{
-		while (nb)
+		while (nb && *opc)
 		{
-			printf("%02hhx", *opc++);
+			printf("%02hhx", *opc);
+			*opc++;
 			if (nb > 1)
 				printf(" ");
 			else
