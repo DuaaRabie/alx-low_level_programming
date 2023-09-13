@@ -26,11 +26,7 @@ int main(int argc, char *argv[])
 
 	while (nb--)
 	{
-		printf("%02hhx", *opc++);
-		if (nb >= 1)
-			printf(" ");
-		else if (nb < 1)
-			printf("\n");
+		printf("%02hhx%s", *opc++, nb ? " " : "\n");
 	}
 
 	return (0);
