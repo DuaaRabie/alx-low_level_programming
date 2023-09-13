@@ -16,13 +16,16 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	opfun = get_op_func(argv[2]);
-	if (opfun == NULL)
+	if (argv[1] != NULL && argv[2] != NULL && argv[3] != NULL)
 	{
-		printf("Error\n");
-		exit(99);
+		opfun = get_op_func(argv[2]);
+		if (opfun == NULL)
+		{
+			printf("Error\n");
+			exit(99);
+		}
+		printf("%d\n", opfun(atoi(argv[1]), atoi(argv[3])));
 	}
-	printf("%d\n", opfun(atoi(argv[1]), atoi(argv[3])));
 
 	return (0);
 }
