@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	}
 
 	nb = atoi(argv[1]);
-	if ( nb < 0)
+	if (nb < 0)
 	{
 		printf("Error\n");
 		exit(2);
