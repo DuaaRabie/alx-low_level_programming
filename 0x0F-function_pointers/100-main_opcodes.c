@@ -29,8 +29,9 @@ int main(int argc, char *argv[])
 		printf("%02hhx", *opc++);
 		if (nb != 0)
 			printf(" ");
+		else
+			printf("\n");
 	}
-	printf("\n");
 
 	return (0);
 }
