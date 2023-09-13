@@ -18,12 +18,12 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-	if (nb < 0)
+	if (nb < 0 || argv[1] == NULL)
 	{
 		printf("Error\n");
 		exit(2);
 	}
-	
+
 	if (argv[1] != NULL)
 	{
 		while (nb)
