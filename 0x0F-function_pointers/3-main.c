@@ -8,8 +8,6 @@
  */
 int main(int argc, char *argv[])
 {
-	char sym[] = "+-*/%";
-	int i;
 	int (*opfun)(int, int);
 
 	if (argc != 4)
@@ -17,17 +15,13 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
-	for (i = 0; i < 5; i++)
-	{
-		if (argv[2][0] == sym[i])
-			break;
-		else if (i == 4)
-		{
-			printf("Error\n");
-			exit(99);
-		}
-	}
+
 	opfun = get_op_func(argv[2]);
+	if (opfun == NULL)
+	{
+		printf("Error\n");
+		exit(99);
+	}
 	printf("%d\n", opfun(atoi(argv[1]), atoi(argv[3])));
 
 	return (0);
