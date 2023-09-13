@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 	char *opc = (char *)main;
 	int nb = atoi(argv[1]);
 
-	if (argc > 2)
+	if (argc != 2)
 	{
 		printf("Error\n");
 		exit(1);
@@ -23,15 +23,18 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(2);
 	}
-
-	while (nb)
+	
+	if (argv[1] != NULL)
 	{
-		printf("%02hhx", *opc++);
-		if (nb > 1)
-			printf(" ");
-		else
-			printf("\n");
-		nb--;
+		while (nb)
+		{
+			printf("%02hhx", *opc++);
+			if (nb > 1)
+				printf(" ");
+			else
+				printf("\n");
+			nb--;
+		}
 	}
 
 	return (0);
