@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 	{
 		printf("%02hhx%s", *opc, " ");
 		nb--;
+		opc +=1;
 	}
 	printf("\n");
 
