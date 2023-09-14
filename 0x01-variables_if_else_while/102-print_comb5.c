@@ -16,21 +16,21 @@ int main(void)
 	{
 		k = l;
 		for (; k <= 99; k++)
-		{
-			if (l != k)
 			{
-				putchar((l / 10) + 48);
-				putchar((l % 10) + 48);
-				putchar(space);
-				putchar((k / 10) + 48);
-				putchar((k % 10) + 48);
-				if (!(l == 98 && k == 99))
+				if (l != k)
 				{
-					putchar(semi);
+					putchar((l / 10) + 48);
+					putchar((l % 10) + 48);
 					putchar(space);
+					putchar((k / 10) + 48);
+					putchar((k % 10) + 48);
+					if (!(l == 98 && k == 99))
+					{
+						putchar(semi);
+						putchar(space);
+					}
 				}
 			}
-		}
 	}
 	putchar(newLine);
 	return (0);
