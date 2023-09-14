@@ -9,7 +9,7 @@
 void print_all(const char * const format, ...)
 {
 	va_list var;
-	unsigned int argn = 0, j = 0, i = 0;
+	unsigned int argn = 1, j = 0, i = 0;
 	char *s;
 
 	while (format[i] != '\0')
@@ -18,18 +18,18 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 	va_start(var, format);
-	while (argn)
+	while (j < argn - 1)
 	{
 		switch (format[j])
 		{
 			case 'c':
-				printf("%c%s", va_arg(var, int), j == argn - 1 ? "\n" : ", ");
+				printf("%c%s", va_arg(var, int), j == argn - 2 ? "\n" : ", ");
 				break;
 			case 'i':
-				printf("%d%s", va_arg(var, int), j == argn - 1 ? "\n" : ", ");
+				printf("%d%s", va_arg(var, int), j == argn - 2 ? "\n" : ", ");
 				break;
 			case 'f':
-				printf("%f%s", va_arg(var, double), j == argn - 1 ? "\n" : ", ");
+				printf("%f%s", va_arg(var, double), j == argn - 2 ? "\n" : ", ");
 				break;
 			case 's':
 				s = va_arg(var, char*);
@@ -38,11 +38,11 @@ void print_all(const char * const format, ...)
 				printf("%s%s", s, j == argn - 1 ? "\n" : ", ");
 				break;
 			default:
-				if (j == argn - 1)
+				if (j == argn - 2)
 					printf("\n");
 				break;
 		}
-		argn--;
+		j++;
 	}
 	va_end(var);
 }
