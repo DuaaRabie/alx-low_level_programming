@@ -35,7 +35,7 @@ void print_all(const char * const format, ...)
 				s = va_arg(var, char*);
 				if (s == NULL)
 					s = "(nil)";
-				printf("%s%s", s, j == argn - 1 ? "\n" : ", ");
+				printf("%s%s", s, j == argn - 2 ? "\n" : ", ");
 				break;
 			default:
 				if (j == argn - 2)
