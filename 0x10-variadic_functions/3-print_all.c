@@ -9,8 +9,7 @@
 void print_all(const char * const format, ...)
 {
 	va_list var;
-	unsigned int argn = 0, j = 0;
-	int i = 0;
+	unsigned int argn = 0, j = 0, i = 0;
 	char *s;
 
 	if (format != NULL)
