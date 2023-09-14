@@ -38,8 +38,6 @@ void print_all(const char * const format, ...)
 				printf("%s%s", s, j == argn - 1 ? "" : ", ");
 				break;
 			default:
-				if (j == argn - 1)
-					printf("\n");
 				break;
 		}
 		j++;
