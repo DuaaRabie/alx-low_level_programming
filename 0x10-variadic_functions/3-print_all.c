@@ -9,15 +9,11 @@
 void print_all(const char * const format, ...)
 {
 	va_list var;
-	unsigned int argn = 0, j = 0, i = 0;
+	unsigned int j = 0;
 	char *s;
 
-	while (format[i] != '\0')
-	{
-		argn += 1;
-		i++;
-	}
 	va_start(var, format);
+
 	while (format && format[j])
 	{
 		switch (format[j++])
