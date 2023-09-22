@@ -3,7 +3,7 @@
 void first(void) __attribute__((constructor));
 
 /**
- * first: funciton run befor main
+ * first - funciton run befor main
  *
  * Return: nothing
  */
