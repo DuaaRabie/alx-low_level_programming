@@ -7,31 +7,32 @@
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-	int count = 0, i = 0, j;
-	listint_t *temp = head, *loop = NULL, *array[100];
+	int i = 1, j;
+	listint_t *temp = head, *array[100];
 
 	if (head == NULL)
-		return (loop);
+		return (NULL);
 
+	array[0] = head;
+	if (temp->next == temp)
+		return (temp);
 
-	while (temp->next != loop)
+	while (temp->next != NULL)
 	{
 		j = 0;
 		temp = temp->next;
-		count++;
 		array[i] = temp;
 		array[i + 1] = NULL;
 		while (array[j])
 		{
 			if (temp->next == array[j])
 			{
-				loop = temp->next;
-				break;
+				return (temp->next);
 			}
 			j++;
 		}
 		i++;
 	}
 
-	return (loop);
+	return (NULL);
 }
