@@ -7,8 +7,11 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	int count = 0, i = 0, j;
-	const listint_t *temp = head, *loop = NULL, *array[100];
+	int count = 0, i = 1, j;
+	const listint_t *temp = head, *loop = NULL, *array[200];
+
+	array[0] = head;
+	printf("[%p] %d\n", (void *)temp, temp->n);
 
 	if (head == NULL)
 		exit(98);
