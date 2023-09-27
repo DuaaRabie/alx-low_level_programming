@@ -26,7 +26,7 @@ size_t print_listint_safe(const listint_t *head)
 		{
 			if (temp->next == array[j])
 			{
-				loop = temp->next;
+				loop = array[j];
 				break;
 			}
 			j++;
