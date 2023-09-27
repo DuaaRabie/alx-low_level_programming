@@ -13,8 +13,7 @@ size_t free_listint_safe(listint_t **h)
 	if (h == NULL || *h)
 		return (count);
 
-	do
-	{
+	do {
 		free(temp);
 		count++;
 		temp = temp->next;
