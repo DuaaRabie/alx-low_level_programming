@@ -16,6 +16,8 @@ size_t print_listint_safe(const listint_t *head)
 	}
 	array[0] = head;
 	printf("[%p] %d\n", (void *)temp, temp->n);
+	if (temp->next == temp)
+		loop = temp;
 
 
 	while (temp->next != loop)
