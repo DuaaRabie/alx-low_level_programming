@@ -8,7 +8,7 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	int count = 0, i = 0, j;
-	const listint_t *temp = head, *loop = NULL, *array[20];
+	const listint_t *temp = head, *loop = NULL, *array[100];
 
 	if (head == NULL)
 		exit(98);
@@ -42,5 +42,4 @@ size_t print_listint_safe(const listint_t *head)
 
 
 	return (++count);
-
 }
