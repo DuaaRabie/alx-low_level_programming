@@ -12,10 +12,11 @@ size_t print_listint_safe(const listint_t *head)
 
 	array[0] = head;
 	printf("[%p] %d\n", (void *)temp, temp->n);
+	count++;
 
 	if (head == NULL)
 	{
-		return (count);
+		return (0);
 	}
 
 
