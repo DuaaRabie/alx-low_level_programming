@@ -17,9 +17,7 @@ size_t print_listint_safe(const listint_t *head)
 	while (temp->next != loop)
 	{
 		j = 0;
-		printf("[%p] %d\n", (void *)temp, temp->n);
 		temp = temp->next;
-		count++;
 		array[i] = temp;
 		array[i + 1] = NULL;
 		while (array[j])
@@ -31,9 +29,10 @@ size_t print_listint_safe(const listint_t *head)
 			}
 			j++;
 		}
+		printf("[%p] %d\n", (void *)temp, temp->n);
+		count++;
 		i++;
 	}
-	printf("[%p] %d\n", (void *)temp, temp->n);
 
 	if (loop != NULL)
 	{
