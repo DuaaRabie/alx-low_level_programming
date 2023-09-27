@@ -15,7 +15,7 @@ size_t print_listint_safe(const listint_t *head)
 
 	if (head == NULL)
 	{
-		printf("0\n");
+		printf("%d\n", temp->n);
 		exit(98);
 	}
 
