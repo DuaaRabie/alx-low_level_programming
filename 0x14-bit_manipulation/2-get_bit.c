@@ -6,7 +6,7 @@
  * @n: the number
  * Return: total number of digits
  */
-int digits(unsigned long int n)
+unsigned int digits(unsigned long int n)
 {
 	unsigned long int power = 1, highest = 1;
 	int digit = 1;
@@ -30,8 +30,11 @@ int digits(unsigned long int n)
 int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned int i = 0;
-	int total = digits(n);
+	unsigned int total = digits(n);
 	char *b = (char *)calloc(total, sizeof(char));
+
+	if (index >= total)
+		return (-1);
 
 	if (n == 0)
 		if (index == 0)
