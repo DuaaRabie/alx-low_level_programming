@@ -33,6 +33,9 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned int total = digits(n);
 	char *b = (char *)calloc(total, sizeof(char));
 
+	if (b == NULL)
+		return (-1);
+
 	if (index >= total)
 		return (-1);
 
