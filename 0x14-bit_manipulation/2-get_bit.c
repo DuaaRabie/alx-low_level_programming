@@ -44,10 +44,12 @@ int get_bit(unsigned long int n, unsigned int index)
 	{
 		b[i] = (n & 1);
 		n = n >> 1;
-		if (i == index)
-			return (b[i]);
 		i++;
 	}
+	i--;
+
+	if (index <= total)
+		return (b[index]);
 
 	return (-1);
 }
