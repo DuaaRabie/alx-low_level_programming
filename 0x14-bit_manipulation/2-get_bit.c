@@ -31,25 +31,17 @@ int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned int i = 0;
 	unsigned int total = sizeof(unsigned long int) * 8;
-	char *b = (char *)calloc(total, sizeof(char));
 
-	if (b == NULL)
+	if (index >= total)
 		return (-1);
-
-	if (n == 0 && index < total)
-		return (0);
 
 	while (n)
 	{
-		b[i] = (n & 1);
-		n = n >> 1;
 		if (index == i)
-			return (b[index]);
+			return ((n & 1));
+		n = n >> 1;
 		i++;
 	}
-	b[i] = (n & 1);
-	if (index == i)
-		return (b[index]);
 
 	return (-1);
 }
