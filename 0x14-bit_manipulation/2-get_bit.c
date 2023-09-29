@@ -42,7 +42,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	while (n)
 	{
 		b[i] = (n & 1);
-		n = n >> index;
+		n = n >> 1;
 		if (index == i)
 			return (b[index]);
 		i++;
