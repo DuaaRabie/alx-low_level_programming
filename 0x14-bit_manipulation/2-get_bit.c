@@ -30,23 +30,17 @@ unsigned int digits(unsigned long int n)
 int get_bit(unsigned long int n, unsigned int index)
 {
 	unsigned int i = 0;
-	unsigned int total = digits(n);
+	unsigned int total = sizeof(unsigned long int) * 8;
 	char *b = (char *)calloc(total, sizeof(char));
-
-
-	if (index >= total)
-		return (-1);
 
 	while (n)
 	{
 		b[i] = (n & 1);
 		n = n >> 1;
+		if (index == i)
+			return (b[index]);
 		i++;
 	}
-	i--;
-
-	if (index <= total)
-		return (b[index]);
 
 	return (-1);
 }
