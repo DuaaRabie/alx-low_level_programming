@@ -36,7 +36,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	if (b == NULL)
 		return (-1);
 
-	if (n == 0 && index == 0)
+	if (n == 0 && index < total)
 		return (0);
 
 	while (n)
