@@ -2,26 +2,6 @@
 #include <stdlib.h>
 
 /**
- * digits - calculate the total binary digits
- * @n: the number
- * Return: total number of digits
- */
-unsigned int digits(unsigned long int n)
-{
-	unsigned long int power = 1, highest = 1;
-	int digit = 1;
-
-	while (n > highest)
-	{
-		digit++;
-		power *= 2;
-		highest += power;
-	}
-
-	return (digit);
-}
-
-/**
  * get_bit - get the value of a bit at a given index
  * @n: the number
  * @index: the index of bit
@@ -29,12 +9,14 @@ unsigned int digits(unsigned long int n)
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned int i = 0;
 	unsigned int total = sizeof(unsigned long int) * 8;
 
-	if (index >= total)
+	if (index > total)
 		return (-1);
 
+	return ((n >> index) & 1);
+
+	/*
 	while (n)
 	{
 		if (index == i)
@@ -43,5 +25,5 @@ int get_bit(unsigned long int n, unsigned int index)
 		i++;
 	}
 
-	return (-1);
+	return (-1);*/
 }
