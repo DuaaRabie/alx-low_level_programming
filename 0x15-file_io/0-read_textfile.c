@@ -10,7 +10,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
 	char data[BUFSIZ];
-	ssize_t rcount, wcount = 0;
+	ssize_t rcount = 1, wcount = 0;
 	size_t tcount = 0, size;
 
 	if (filename == NULL)
@@ -20,7 +20,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd == -1)
 		return (0);
 
-	while (tcount < letters)
+	while (tcount < letters && rcount != 0)
 	{
 		if (letters - tcount > BUFSIZ)
 			size = BUFSIZ;
