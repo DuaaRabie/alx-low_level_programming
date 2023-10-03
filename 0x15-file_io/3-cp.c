@@ -24,7 +24,7 @@ int main(int ac, char *av[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	dto = open("test.txt", O_WRONLY | O_TRUNC);
+	dto = open("test.txt", O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (dto == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
