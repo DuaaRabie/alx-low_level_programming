@@ -26,7 +26,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 			size = BUFSIZ;
 		else
 			size = letters - tcount;
-
 		rcount = read(fd, data, size);
 		if (rcount == 0)
 		{
@@ -38,22 +37,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 			close(fd);
 			return (0);
 		}
-
 		wcount = write(STDOUT_FILENO, data, rcount);
-		if (wcount == -1)
-		{
-			close(fd);
-			return (0);
-		}
 		if (wcount != rcount)
 		{
 			close(fd);
 			return (0);
 		}
-
 		tcount += rcount;
 	}
-
 	close(fd);
 
 	return (tcount);
