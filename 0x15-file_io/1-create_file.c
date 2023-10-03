@@ -17,14 +17,16 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 
-	while (*text_content != '\0' && text_content != NULL)
+	if (text_content != NULL)
 	{
-		wcount += write(fd, text_content, 1);
-		if (wcount == -1)
-			return (-1);
-		text_content++;
+		while (*text_content != '\0')
+		{
+			wcount += write(fd, text_content, 1);
+			if (wcount == -1)
+				return (-1);
+			text_content++;
+		}
 	}
-
 	cfile = close(fd);
 	if (cfile == -1)
 		return (0);
