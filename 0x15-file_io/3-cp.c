@@ -15,7 +15,7 @@ void check_errors(int ac, char **av, int dfrom, int dto, int fc, int tc)
 {
 	if (ac != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp %s %s\n", av[1], av[2]);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	if (dfrom == -1)
@@ -58,7 +58,7 @@ int main(int ac, char **av)
 	dfrom = open(av[1], O_RDONLY);
 	check_errors(ac, av, dfrom, dto, from_close, to_close);
 
-	dto = open(av[2], O_WRONLY | O_CREAT, 0664);
+	dto = open(av[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	check_errors(ac, av, dfrom, dto, from_close, to_close);
 
 	while (rcount != 0)
