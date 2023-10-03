@@ -68,8 +68,8 @@ int main(int ac, char **av)
 		if (wcount != rcount)
 			break;
 	}
-	from_close = close(dfrom);
-	to_close = close(dto);
+	/*from_close = close(dfrom);*/
+	/*to_close = close(dto);*/
 	check_errors(ac, av, dfrom, dto, from_close, to_close);
 
 	return (0);
