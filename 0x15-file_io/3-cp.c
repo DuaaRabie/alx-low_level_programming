@@ -3,12 +3,15 @@
 
 /**
  * check_errors - check the errors
+ * @ac: arguments count
+ * @av: arguments vector
  * @dto: file descriptor for the file_to
  * @dfrom: file descriptor for the file_from
- * close_check: closing file descripor check
+ * @tc: closing to_file descripor check
+ * @fc: closing from_file descripor check
  * Return: nothing
  */
-void check_errors(int ac, char **av, int dfrom, int dto, int from_close, int to_close)
+void check_errors(int ac, char **av, int dfrom, int dto, int fc, int tc)
 {
 	if (ac != 3)
 	{
@@ -25,12 +28,12 @@ void check_errors(int ac, char **av, int dfrom, int dto, int from_close, int to_
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
 		exit(99);
 	}
-	if (to_close == 0)
+	if (tc == 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dfrom);
 		exit(100);
 	}
-	if (from_close == 0)
+	if (fc == 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dto);
 		exit(100);
@@ -38,7 +41,7 @@ void check_errors(int ac, char **av, int dfrom, int dto, int from_close, int to_
 }
 
 /**
- * copy_file - copies file to another file
+ * main - copies file to another file
  * @ac: arguments count
  * @av: arguments vector
  * Return: 0
@@ -65,8 +68,8 @@ int main(int ac, char **av)
 		if (wcount != rcount)
 			break;
 	}
-	to_close = close(dto);
 	from_close = close(dfrom);
+	to_close = close(dto);
 	check_errors(ac, av, dfrom, dto, from_close, to_close);
 
 	return (0);
