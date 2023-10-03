@@ -22,7 +22,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	while (tcount < letters)
 	{
-		if (letters - wcount > BUFSIZ)
+		if (letters - tcount > BUFSIZ)
 			size = BUFSIZ;
 		else
 			size = letters - tcount;
