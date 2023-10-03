@@ -23,7 +23,7 @@ void check_errors(int ac, char **av, int dfrom, int dto, int from_close, int to_
 	if (dto == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
-		exit(98);
+		exit(99);
 	}
 	if (to_close == 0)
 	{
@@ -53,7 +53,7 @@ int main(int ac, char **av)
 	dfrom = open(av[1], O_RDONLY);
 	check_errors(ac, av, dfrom, dto, from_close, to_close);
 
-	dto = open(av[2], O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	dto = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	check_errors(ac, av, dfrom, dto, from_close, to_close);
 
 	while (rcount != 0)
@@ -65,7 +65,8 @@ int main(int ac, char **av)
 		if (wcount != rcount)
 			break;
 	}
-	to_close = close(dfrom);
+	to_close = close(dto);
+	from_close = close(dfrom);
 	check_errors(ac, av, dfrom, dto, from_close, to_close);
 
 	return (0);
