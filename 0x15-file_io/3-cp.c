@@ -2,59 +2,71 @@
 #include <stdlib.h>
 
 /**
- * copy_file - copies file to another file
- * @ac: arguments count
- * @av: arguments vector
- * Return: 0
+ * check_errors - check the errors
+ * @dto: file descriptor for the file_to
+ * @dfrom: file descriptor for the file_from
+ * close_check: closing file descripor check
+ * Return: nothing
  */
-int main(int ac, char *av[])
+void check_errors(int ac, char **av, int dfrom, int dto, int from_close, int to_close)
 {
-	int dfrom, dto, close_check, rcount = 1, wcount = 0;
-	char data[1024];
-	size_t tcount = 0;
-
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp %s %s\n", av[1], av[2]);
 		exit(97);
 	}
-	dfrom = open(av[1], O_RDONLY);
 	if (dfrom == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	dto = open(av[2], O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (dto == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
 		exit(98);
 	}
-	while (rcount != 0)
-	{
-		rcount = read(dfrom, data, 1024);
-		if (rcount == 0)
-			return (tcount);
-		if (rcount == -1)
-			return (0);
-		wcount = write(dto, data, rcount);
-		if (wcount == -1)
-			return (0);
-		if (wcount != rcount)
-			return (0);
-	}
-	close_check = close(dfrom);
-	if (close_check == 0)
+	if (to_close == 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dfrom);
 		exit(100);
 	}
-	close_check = close(dto);
-	if (close_check == 0)
+	if (from_close == 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dto);
 		exit(100);
 	}
+}
+
+/**
+ * copy_file - copies file to another file
+ * @ac: arguments count
+ * @av: arguments vector
+ * Return: 0
+ */
+int main(int ac, char **av)
+{
+	int dfrom = 0, dto = 0, to_close = 1, from_close = 1, rcount = 1, wcount = 0;
+	char data[1024];
+
+	check_errors(ac, av, dfrom, dto, from_close, to_close);
+
+	dfrom = open(av[1], O_RDONLY);
+	check_errors(ac, av, dfrom, dto, from_close, to_close);
+
+	dto = open(av[2], O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	check_errors(ac, av, dfrom, dto, from_close, to_close);
+
+	while (rcount != 0)
+	{
+		rcount = read(dfrom, data, 1024);
+		if (rcount == 0 || rcount == -1)
+			break;
+		wcount = write(dto, data, rcount);
+		if (wcount != rcount)
+			break;
+	}
+	to_close = close(dfrom);
+	check_errors(ac, av, dfrom, dto, from_close, to_close);
 
 	return (0);
 }
