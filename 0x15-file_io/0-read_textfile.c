@@ -2,7 +2,6 @@
 
 /**
  * read_textfile - reads a text file and
- * 		   prints it to the POSIX standard output.
  * @filename: filename string
  * @letters: number of letters to print
  * Return: the number of printed and readed letters
@@ -24,7 +23,11 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		ch = fgetc(fd);
 		if (ch == -1)
-			return (tcount);
+		{
+			if (tcount != 0)
+				return (tcount);
+			return (0);
+		}
 
 		fputc(ch, stdout);
 
