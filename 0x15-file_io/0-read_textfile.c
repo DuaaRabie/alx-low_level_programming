@@ -36,6 +36,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		wcount = write(STDOUT_FILENO, data, size);
 		if (wcount == -1)
 			return (0);
+		if (wcount == 0)
+			return (wcount);
 
 		tcount += rcount;
 	}
