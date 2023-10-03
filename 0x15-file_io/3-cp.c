@@ -64,11 +64,13 @@ int main(int ac, char **av)
 	while (rcount != 0)
 	{
 		rcount = read(dfrom, data, 1024);
-		if (rcount == 0 || rcount == -1)
+		if (rcount == 0)
 			break;
+		if (rcount == -1)
+			check_errors(ac, av, -1, dto, from_close, to_close);
 		wcount = write(dto, data, rcount);
 		if (wcount != rcount)
-			break;
+			check_errors(ac, av, dfrom, -1, from_close, to_close);
 	}
 	from_close = close(dfrom);
 	to_close = close(dto);
