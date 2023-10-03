@@ -69,7 +69,7 @@ int main(int ac, char **av)
 		if (rcount == -1)
 			check_errors(ac, av, -1, dto, from_close, to_close);
 		wcount = write(dto, data, rcount);
-		if (wcount != rcount)
+		if (wcount == -1)
 			check_errors(ac, av, dfrom, -1, from_close, to_close);
 	}
 	from_close = close(dfrom);
