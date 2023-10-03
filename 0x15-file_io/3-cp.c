@@ -28,12 +28,12 @@ void check_errors(int ac, char **av, int dfrom, int dto, int fc, int tc)
 		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
 		exit(99);
 	}
-	if (tc == 0)
+	if (tc == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dfrom);
 		exit(100);
 	}
-	if (fc == 0)
+	if (fc == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dto);
 		exit(100);
@@ -48,7 +48,7 @@ void check_errors(int ac, char **av, int dfrom, int dto, int fc, int tc)
  */
 int main(int ac, char **av)
 {
-	int dfrom = 0, dto = 0, to_close = 1, from_close = 1, rcount = 1, wcount = 0;
+	int dfrom = 0, dto = 0, to_close = 0, from_close = 0, rcount = 1, wcount = 0;
 	char data[1024];
 
 	check_errors(ac, av, dfrom, dto, from_close, to_close);
@@ -68,8 +68,8 @@ int main(int ac, char **av)
 		if (wcount != rcount)
 			break;
 	}
-	/*from_close = close(dfrom);*/
-	/*to_close = close(dto);*/
+	from_close = close(dfrom);
+	to_close = close(dto);
 	check_errors(ac, av, dfrom, dto, from_close, to_close);
 
 	return (0);
