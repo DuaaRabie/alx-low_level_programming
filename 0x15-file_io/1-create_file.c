@@ -26,7 +26,7 @@ int create_file(const char *filename, char *text_content)
 	}
 
 	cfile = close(fd);
-	if (cfile == 0)
+	if (cfile == -1)
 		return (0);
 
 	return (1);
