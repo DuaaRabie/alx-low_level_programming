@@ -29,7 +29,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 		rcount = read(fd, data, size);
 		if (rcount == 0)
-			return (tcount);
+			return (0);
 		if (rcount == -1)
 			return (0);
 
