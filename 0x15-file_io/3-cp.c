@@ -48,7 +48,9 @@ void check_errors(int ac, char **av, int dfrom, int dto, int fc, int tc)
  */
 int main(int ac, char **av)
 {
-	int dfrom = 0, dto = 0, to_close = 0, from_close = 0, rcount = 1, wcount = 0;
+	int dfrom = 0, dto = 0, to_close = 0, from_close = 0;
+	int rcount = 1, wcount = 0;
+
 	char data[1024];
 
 	check_errors(ac, av, dfrom, dto, from_close, to_close);
@@ -56,7 +58,7 @@ int main(int ac, char **av)
 	dfrom = open(av[1], O_RDONLY);
 	check_errors(ac, av, dfrom, dto, from_close, to_close);
 
-	dto = open(av[2], O_WRONLY | O_CREAT, 0664);
+	dto = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	check_errors(ac, av, dfrom, dto, from_close, to_close);
 
 	while (rcount != 0)
