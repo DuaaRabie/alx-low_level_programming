@@ -25,7 +25,7 @@ void check_errors(int ac, char **av, int dfrom, int dto, int fc, int tc)
 	}
 	if (dto == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
 	if (tc == -1)
@@ -69,7 +69,7 @@ int main(int ac, char **av)
 		if (rcount == -1)
 			check_errors(ac, av, -1, dto, from_close, to_close);
 		wcount = write(dto, data, rcount);
-		if (wcount == -1)
+		if (wcount == rcount)
 			check_errors(ac, av, dfrom, -1, from_close, to_close);
 	}
 	from_close = close(dfrom);
