@@ -8,7 +8,7 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fd, wcount;
+	int fd, wcount, cfile;
 
 	if (filename == NULL)
 		return (-1);
@@ -25,7 +25,9 @@ int create_file(const char *filename, char *text_content)
 		text_content++;
 	}
 
-	close(fd);
+	cfile = close(fd);
+	if (cfile == 0)
+		return (0);
 
 	return (1);
 }
