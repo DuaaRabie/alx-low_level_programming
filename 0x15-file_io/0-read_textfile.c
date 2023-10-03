@@ -8,29 +8,32 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *fd;
-	char ch;
+	int fd;
+	char data[BUFSIZ];
+	ssize_t rcount, wcount = 0;
 	size_t tcount = 0;
 
 	if (filename == NULL)
 		return (0);
 
-	fd = fopen(filename, "r");
-	if (fd == NULL)
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
 		return (0);
 
-	while (tcount < letters && !feof(fd))
+	while (tcount < letters)
 	{
-		ch = fgetc(fd);
-		if (ch == -1)
+		rcount = read(fd, data, letters - wcount > BUFSIZ ? BUFSIZ : letters - tcount);
+		if (rcount == 0)
+			return (tcount);
+
+		wcount = write(STDOUT_FILENO, data, rcount);
+		if (wcount == 0)
 			return (0);
 
-		fputc(ch, stdout);
-
-		tcount += 1;
+		tcount += rcount;
 	}
 
-	fclose(fd);
+	close(fd);
 
 	if (tcount != letters)
 		return (0);
