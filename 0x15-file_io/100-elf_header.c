@@ -119,7 +119,7 @@ void print_os(Elf64_Ehdr elfh)
 void print_type(Elf64_Ehdr elfh)
 {
 	unsigned char *hex = (unsigned char *)&elfh.e_entry;
-	int i = 0, len = 0;
+	int i = 0;
 
 	printf("  Type:                              ");
 	switch (elfh.e_type)
@@ -141,24 +141,12 @@ void print_type(Elf64_Ehdr elfh)
 			break;
 	}
 	printf("  Entry point address:               0x");
-	if (elfh.e_ident[EI_DATA] != ELFDATA2MSB)
-	{
-		i = elfh.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
-		while (!hex[i])
-			i--;
-		printf("%x", hex[i--]);
-		for (; i >= 0; i--)
-			printf("%02x", hex[i]);
-	}
-	else
-	{
-		len = elfh.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
-		while (!hex[i])
-			i++;
-		printf("%x", hex[i++]);
-		for (; i <= len; i++)
-			printf("%02x", hex[i]);
-	}
+	i = elfh.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
+	while (!hex[i])
+		i--;
+	printf("%x", hex[i--]);
+	for (; i >= 0; i--)
+		printf("%02x", hex[i]);
 	printf("\n");
 }
 
