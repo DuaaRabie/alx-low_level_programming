@@ -80,7 +80,7 @@ void print_os(Elf64_Ehdr elfh)
 	switch (elfh.e_ident[EI_OSABI])
 	{
 		case ELFOSABI_NONE:
-			printf("UNIX System V\n");
+			printf("UNIX - System V\n");
 			break;
 		case ELFOSABI_HPUX:
 			printf("HP-UX ABI\n");
