@@ -2,6 +2,7 @@
 #include <elf.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 /**
  * print_magic_class_data - prints magic, class and data
@@ -153,21 +154,25 @@ int main(int ac, char **av)
 	if (ac != 2)
 	{
 		dprintf(STDERR_FILENO, "elf_header: Warning: Nothing to do.\n");
-		return (-1);
+		exit(98);
 	}
 
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", av[1]);
-		return (-1);
+		exit(98);
 	}
 	size = read(fd, &elfh, sizeof(elfh));
 	if (size == -1 || size != sizeof(elfh))
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file\n");
-		return (-1);
+		exit(98);
 	}
+	if (elfh.e_ident[0] != 0x7f || elfh.e_ident[1] != 'E')
+		dprintf(STDERR_FILENO, "Not ELF file: %s\n", av[1]), exit(98);
+	if (elfh.e_ident[2] !='l' || elfh.e_ident[2] != 'L' || elfh.e_ident[3] != 'F')
+		dprintf(STDERR_FILENO, "Not ELF file: %s\n", av[1]), exit(98);
 
 	printf("ELF Header:\n");
 	print_magic_class_data(elfh);
