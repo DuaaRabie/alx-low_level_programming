@@ -171,14 +171,16 @@ int main(int ac, char **av)
 	}
 	if (elfh.e_ident[0] != 0x7f || elfh.e_ident[1] != 'E')
 		dprintf(STDERR_FILENO, "Not ELF file: %s\n", av[1]), exit(98);
-	if (elfh.e_ident[2] !='l' || elfh.e_ident[2] != 'L' || elfh.e_ident[3] != 'F')
+	if (elfh.e_ident[2] != 'l' || elfh.e_ident[2] != 'L')
 		dprintf(STDERR_FILENO, "Not ELF file: %s\n", av[1]), exit(98);
-
+	if (elfh.e_ident[3] != 'F')
+		dprintf(STDERR_FILENO, "Not ELF file: %s\n", av[1]), exit(98);
 	printf("ELF Header:\n");
 	print_magic_class_data(elfh);
 	print_version(elfh);
 	print_os(elfh);
-	printf("  ABI Version:                       %d\n", elfh.e_ident[EI_ABIVERSION]);
+	printf("  ABI Version:                       ");
+	printf("%d\n", elfh.e_ident[EI_ABIVERSION]);
 	print_type(elfh);
 	printf("  Entry point address:               %#lx\n", elfh.e_entry);
 
