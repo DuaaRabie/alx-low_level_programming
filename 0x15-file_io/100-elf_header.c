@@ -80,19 +80,19 @@ void print_os(Elf64_Ehdr elfh)
 	switch (elfh.e_ident[EI_OSABI])
 	{
 		case ELFOSABI_NONE:
-			printf("UNIX System V ABI\n");
+			printf("UNIX System V\n");
 			break;
 		case ELFOSABI_HPUX:
 			printf("HP-UX ABI\n");
 			break;
 		case ELFOSABI_NETBSD:
-			printf("NetBSD ABI\n");
+			printf("UNIX - NetBSD\n");
 			break;
 		case ELFOSABI_LINUX:
 			printf("Linux ABI\n");
 			break;
 		case ELFOSABI_SOLARIS:
-			printf("Solaris ABI\n");
+			printf("UNIX - Solaris\n");
 			break;
 		case ELFOSABI_IRIX:
 			printf("IRIX ABI\n");
@@ -171,10 +171,9 @@ int main(int ac, char **av)
 	}
 	if (elfh.e_ident[0] != 0x7f || elfh.e_ident[1] != 'E')
 		dprintf(STDERR_FILENO, "Not ELF file: %s\n", av[1]), exit(98);
-	if (elfh.e_ident[2] != 'l' || elfh.e_ident[2] != 'L')
+	if (elfh.e_ident[2] != 'L' || elfh.e_ident[3] != 'F')
 		dprintf(STDERR_FILENO, "Not ELF file: %s\n", av[1]), exit(98);
-	if (elfh.e_ident[3] != 'F')
-		dprintf(STDERR_FILENO, "Not ELF file: %s\n", av[1]), exit(98);
+
 	printf("ELF Header:\n");
 	print_magic_class_data(elfh);
 	print_version(elfh);
@@ -182,7 +181,7 @@ int main(int ac, char **av)
 	printf("  ABI Version:                       ");
 	printf("%d\n", elfh.e_ident[EI_ABIVERSION]);
 	print_type(elfh);
-	printf("  Entry point address:               %#lx\n", elfh.e_entry);
+	printf("  Entry point address:               %#.2lx\n", elfh.e_entry);
 
 	return (0);
 }
