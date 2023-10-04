@@ -42,10 +42,10 @@ void print_magic_class_data(Elf64_Ehdr elfh)
 			printf("NONE\n");
 			break;
 		case ELFDATA2LSB:
-			printf("2's complement, Little endian\n");
+			printf("2's complement, little endian\n");
 			break;
 		case ELFDATA2MSB:
-			printf("2's complement, Big endian\n");
+			printf("2's complement, big endian\n");
 			break;
 	}
 }
