@@ -35,7 +35,7 @@ void print_magic_class_data(Elf64_Ehdr elfh)
 			printf("ELF64\n");
 			break;
 	}
-	printf("  DATA:                              ");
+	printf("  Data:                              ");
 	switch (elfh.e_ident[EI_DATA])
 	{
 		case ELFDATANONE:
