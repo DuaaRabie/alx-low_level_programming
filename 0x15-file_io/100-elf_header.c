@@ -16,7 +16,7 @@ void print_magic_class_data(Elf64_Ehdr elfh)
 	printf("  Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)
 	{
-		printf("%2.2x", elfh.e_ident[i]);
+		printf("%02x", elfh.e_ident[i]);
 		if (i == EI_NIDENT - 1)
 			printf("\n");
 		else
