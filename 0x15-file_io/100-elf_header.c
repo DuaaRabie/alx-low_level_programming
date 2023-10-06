@@ -61,13 +61,15 @@ void print_version(Elf64_Ehdr elfh)
 	switch (elfh.e_ident[EI_VERSION])
 	{
 		case EV_CURRENT:
-			printf(" (current)");
+			printf(" (current)\n");
 			break;
 		case EV_NONE:
+			printf("\n");
 			break;
+		default:
+			printf("\n");
 		break;
 	}
-	printf("\n");
 }
 
 void print_more_os(Elf64_Ehdr elfh);
