@@ -255,5 +255,8 @@ int main(int ac, char **av)
 	printf("%d\n", elfh.e_ident[EI_ABIVERSION]);
 	print_type(elfh);
 	print_entry(elfh);
+
+	if (close(fd))
+		dprintf(STDERR_FILENO, "Error closing file descriptor: %d\n", fd), exit(98);
 	return (0);
 }
