@@ -256,7 +256,6 @@ int main(int ac, char **av)
 	print_type(elfh);
 	print_entry(elfh);
 
-	close(fd);
 	if (close(fd))
 		dprintf(STDERR_FILENO, "Error closing file descriptor: %d\n", fd), exit(98);
 	return (0);
