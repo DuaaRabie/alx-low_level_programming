@@ -16,7 +16,7 @@ void print_magic_class_data(Elf64_Ehdr elfh)
 	printf("  Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)
 	{
-		printf("%02x", elfh.e_ident[i]);
+		printf("%2.2x", elfh.e_ident[i]);
 		if (i == EI_NIDENT - 1)
 			printf("\n");
 		else
@@ -61,14 +61,13 @@ void print_version(Elf64_Ehdr elfh)
 	switch (elfh.e_ident[EI_VERSION])
 	{
 		case EV_CURRENT:
-			printf(" (current)\n");
+			printf(" (current)");
 			break;
 		case EV_NONE:
-			printf("\n");
 			break;
-		printf("\n");
 		break;
 	}
+	printf("\n");
 }
 
 void print_more_os(Elf64_Ehdr elfh);
