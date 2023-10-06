@@ -239,7 +239,7 @@ int main(int ac, char **av)
 	size = read(fd, &elfh, sizeof(elfh));
 	if (size < 1 || size != sizeof(elfh))
 	{
-		dprintf(STDERR_FILENO, "Can't read from file %s\n", av[2]);
+		dprintf(STDERR_FILENO, "Can't read from file %s\n", av[1]);
 		exit(98);
 	}
 	if (elfh.e_ident[0] != 0x7f || elfh.e_ident[1] != 'E')
