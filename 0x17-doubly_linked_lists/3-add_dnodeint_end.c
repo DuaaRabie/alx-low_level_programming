@@ -20,12 +20,16 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 		return (NULL);
 
 	if (temp == NULL)
+	{
 		*head = new;
+		new->prev = NULL;
+	}
 	else
 	{
 		while (temp->next != NULL)
 			temp = temp->next;
 		temp->next = new;
+		new->prev = temp;
 	}
 	new->next = NULL;
 	new->n = n;
