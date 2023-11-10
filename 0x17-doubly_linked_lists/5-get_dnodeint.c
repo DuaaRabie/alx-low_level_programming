@@ -2,6 +2,7 @@
 
 /**
  * get_dnodeint_at_index - get nth node
+ * @head: pointer to first node
  * @index: index of wanted node
  * Return: nth node
  */
