@@ -57,8 +57,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (ht->array[index])
 	{
-		if (ht->array[index]->key != key || (ht->array[index]->key == key
-					&& ht->array[index]->value != value))
+		if (strcmp(ht->array[index]->key, key) != 0 ||
+				(strcmp(ht->array[index]->key, key) == 0
+					&& strcmp(ht->array[index]->value, value) != 0))
 		{
 			temp = ht->array[index];
 			ht->array[index] = new;
