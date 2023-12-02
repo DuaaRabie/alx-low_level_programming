@@ -5,7 +5,7 @@
  * @key: the key
  * @value: the value
  * Return: pointer to new node
-*/
+ */
 void *create_node(const char *key, const char *value)
 {
 	hash_node_t *new = NULL;
@@ -56,11 +56,19 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (new == NULL)
 		return (0);
 
-	if (ht->array[index] && key != ht->array[index]->key)
+	if (ht->array[index])
 	{
-		temp = ht->array[index];
-		ht->array[index] = new;
-		new->next = temp;
+		if (key != ht->array[index]->key)
+		{
+			ht->array[index] = new;
+			new->next = NULL;
+		}
+		else
+		{
+			temp = ht->array[index];
+			ht->array[index] = new;
+			new->next = temp;
+		}
 	}
 	else
 	{
