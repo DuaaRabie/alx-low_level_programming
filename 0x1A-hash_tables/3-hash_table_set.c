@@ -4,7 +4,7 @@
  * create_node - creates a new array node
  * @key: the key
  * @value: the value
- * Return: pointer to new node 
+ * Return: pointer to new node
 */
 void *create_node(const char *key, const char *value)
 {
@@ -49,7 +49,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	index = key_index((const unsigned char *)key, ht->size);
-	if (index >= size)
+	if ((size_t)index >= ht->size)
 		return (0);
 
 	new = create_node(key, value);
