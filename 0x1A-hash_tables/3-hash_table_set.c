@@ -51,29 +51,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = key_index((const unsigned char *)key, ht->size);
 	if ((size_t)index >= ht->size)
 		return (0);
-
 	new = create_node(key, value);
 	if (new == NULL)
 		return (0);
 
 	if (ht->array[index])
 	{
-		if (ht->array[index]->key != key)
+		if (ht->array[index]->key != key || (ht->array[index]->key == key
+					&& ht->array[index]->value != value))
 		{
 			temp = ht->array[index];
 			ht->array[index] = new;
 			new->next = temp;
-		}
-		else
-		{
-			if (ht->array[index]->value != value)
-			{
-				free(ht->array[index]->value);
-				ht->array[index]->value = malloc(strlen(value) + 1);
-				if (ht->array[index]->value == NULL)
-					return (0);
-				strcpy(ht->array[index]->value, value);
-			}
 		}
 	}
 	else
