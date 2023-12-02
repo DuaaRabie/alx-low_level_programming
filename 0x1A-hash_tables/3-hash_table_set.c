@@ -58,11 +58,21 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (ht->array[index])
 	{
-		if (key != ht->array[index]->key)
+		if (ht->array[index]->key != key)
 		{
 			temp = ht->array[index];
 			ht->array[index] = new;
 			new->next = temp;
+		}
+		else
+		{
+			if (ht->array[index]->value != value)
+			{
+				ht->array[index]->value = malloc(strlen(value) + 1);
+				if (ht->array[index]->value == NULL)
+					return (0);
+				strcpy(ht->array[index]->value, value);
+			}
 		}
 	}
 	else
