@@ -56,15 +56,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (new == NULL)
 		return (0);
 
-	/*if (ht->array[index])
+	if (ht->array[index] && key != ht->array[index]->key)
 	{
 		temp = ht->array[index];
 		ht->array[index] = new;
 		new->next = temp;
 	}
-	else*/
+	else
 	{
-		(void)temp;
 		ht->array[index] = new;
 		new->next = NULL;
 	}
