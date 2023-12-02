@@ -3,8 +3,8 @@
 /**
  * create_node - creates a new array node
  * @key: the key
- * @value: the value 
- * Return: node
+ * @value: the value
+ * Return: pointer to new node 
 */
 void *create_node(const char *key, const char *value)
 {
@@ -30,12 +30,13 @@ void *create_node(const char *key, const char *value)
 	strcpy(new->value, value);
 	return (new);
 }
+
 /**
  * hash_table_set - adds element to the hash table
  * @ht: pointer to the hash table
  * @key: the key
  * @value: the value
- * 
+ *
  * Return: 1 success | otherwise 0
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
@@ -44,10 +45,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *new = NULL;
 	hash_node_t *temp;
 
-	if (key == NULL || *key == '\0' || ht == NULL)
+	/*if (key == NULL || *key == '\0' || ht == NULL)
 		return (0);
-
-	index = key_index((const unsigned char*)key, ht->size);
+*/
+	index = key_index((const unsigned char *)key, ht->size);
 	new = create_node(key, value);
 	if (new == NULL)
 		return (0);
