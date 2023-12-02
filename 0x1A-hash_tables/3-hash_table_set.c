@@ -60,8 +60,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		if (key == ht->array[index]->key)
 		{
+			temp = ht->array[index];
 			ht->array[index] = new;
 			new->next = NULL;
+			free(temp);
 		}
 		else
 		{
