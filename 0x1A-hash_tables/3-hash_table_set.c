@@ -57,15 +57,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (ht->array[index])
 	{
-		if (strcmp(ht->array[index]->key, key) != 0 ||
-				(strcmp(ht->array[index]->key, key) == 0
-					&& strcmp(ht->array[index]->value, value) != 0))
+		if (strcmp(ht->array[index]->key, key) != 0)
 		{
 			temp = ht->array[index];
 			ht->array[index] = new;
 			new->next = temp;
 		}
-		else
+		else if (strcmp(ht->array[index]->key, key) == 0
+					&& strcmp(ht->array[index]->value, value) != 0)
 		{
 			ht->array[index] = new;
 			new->next = NULL;
