@@ -5,11 +5,12 @@ NAME = school
 RM = rm -f
 
 all: $(NAME)
-	$(NAME): $(OBJ)
-		$(CC) -o $@ $^
 
-	%.o: %.c
-		$(CC) -c $< -o $@
+$(NAME): $(OBJ)
+	$(CC) -o $@ $^
+
+%.o: %.c
+	$(CC) -c $< -o $@
 
 clean:
 	$(RM) *~ *.swp
